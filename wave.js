@@ -215,15 +215,15 @@
           x * 0.0055 +
           phase +
           modulation * 1.35
-      ) * .02
+      ) * .18
   
       +
   
-      carrier * .5
+      carrier * .34
   
       +
   
-      harmonic * .06
+      harmonic * .20
   
       +
   
