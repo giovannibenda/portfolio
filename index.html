@@ -23,6 +23,20 @@
             </ul>
         </nav>
     </header>
+
+    <section class="binary-signal-strip">
+        <div class="binary-signal-head">
+          <span class="binary-label">SYS / BINARY STREAM</span>
+          <span class="binary-status">LIVE</span>
+        </div>
+      
+        <div
+          id="binaryStream"
+          class="binary-stream"
+          aria-label="Binary data stream"
+        ></div>
+    </section>
+
     <div id="introduzione" class="hero">
         <div>
             <div class="category">FULL-STACK WEB DEVELOPMENT · CREATIVE CODING · COMPUTER MUSIC</div>
@@ -118,10 +132,38 @@
         <button href="">Github</button>
     </div>
 
+    <section class="complex-audio-fullwidth" aria-label="Complex Audio Signal">
+
+        <div class="wave-console complex-wave-console">
+      
+          <div class="wave-console-head">
+            <span class="wave-label">
+              COMPLEX / AUDIO SIGNAL
+            </span>
+      
+            <span class="wave-status">
+              LIVE
+            </span>
+          </div>
+      
+          <canvas
+            id="complexWave"
+            class="complex-wave"
+            width="900"
+            height="150"
+          ></canvas>
+      
+        </div>
+      
+    </section>
+
     <footer>
         <p>&copy; 2026 GIOVANNI BENDA · PORTFOLIO · WEB DEVELOPMENT & COMPUTER MUSIC</p>
         <a href="#">TORNA SU &uarr;</a>
     </footer>
+
+    <script src="binary.js"></script>
+    <script src="wave.js"></script>
     
 </body>
 </html>
