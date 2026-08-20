@@ -380,6 +380,9 @@ header {
     justify-content: space-around;
 }
 .card {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0px;
     background-color: #f2f2f2;
     color: #122169;
     padding: 20px;
@@ -419,6 +422,9 @@ header {
 .cards.selezione {
     grid-template-columns: 2fr 2fr 2fr;
 }
+.cards.selezione div:nth-child(1)>a>h4, div:nth-child(2)>a>h4, div:nth-child(3)>a>h4 {
+    font-family: 'Helvetica', sans-serif;
+}
 .cards.selezione div:nth-child(1)>a>h4:nth-child(1), div:nth-child(1)>a>h3:nth-child(2), div:nth-child(1)>a>div:nth-child(5) {
     color: #4DBAB4;
 }
@@ -428,8 +434,44 @@ header {
 .cards.selezione div:nth-child(3)>a>h4:nth-child(1), div:nth-child(3)>a>h3:nth-child(2), div:nth-child(3)>a>div:nth-child(5) {
     color: #9DFF00;
 }
+.card.cardlink {
+    border: 5px solid transparent;
+}   
+.card.cardlink:hover {
+    background-color: white;
+}
+.card.cardlink.cyan:hover {
+    border: 5px solid #37B1AB;
+    box-shadow:
+    0 0 5px #37B1AB,
+    0 0 8px rgba(0, 255, 251, 0.567),
+    0 0 20px rgba(0, 255, 242, 0.259);
+    transition: 0.2s ease;
+}
+.card.cardlink.orange:hover {
+    border: 5px solid #FF7A00;
+    box-shadow:
+    0 0 5px #FF7A00,
+    0 0 8px rgba(255, 122, 0, .75),
+    0 0 20px rgba(255, 123, 0, 0.577);
+    transition: 0.2s ease;
+}
+.card.cardlink.green:hover {
+    border: 5px solid #9DFF00;
+    box-shadow:
+    0 0 5px #9DFF00,
+    0 0 8px rgba(47, 255, 0, 0.707),
+    0 0 20px rgba(0, 255, 51, 0.227);
+    transition: 0.2s ease;
+}
 .card.cardlink a {
     text-decoration: none;
+}
+.card.cardlink a>div:nth-child(3) {
+    margin-bottom: 20px;
+}
+.card.cardlink a>div:nth-child(4) {
+    margin-bottom: 20px;
 }
 .tags-languages {
     display: grid;
@@ -442,19 +484,474 @@ header {
     background-color: #F5FBFB;
     border: 1px solid #2B7A7A;
     color: black;
+    font-family: 'Doto', sans-serif;
     padding: 5px;
 }
 .cards.selezione div:nth-child(2)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
     border: 1px solid #FF7A00;
     color: black;
+    font-family: 'Doto', sans-serif;
     padding: 5px;
 }
 .cards.selezione div:nth-child(3)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
     border: 1px solid #9DFF00;
     color: black;
+    font-family: 'Doto', sans-serif;
     padding: 5px;
+}
+.section.repository {
+    display: grid;
+    grid-template-columns: auto;
+    justify-content: left;
+}
+.section.repository div:nth-child(2) {
+    border-bottom: 2px solid #006CFF;
+}
+.section.repository div:nth-child(3)>a {
+    text-decoration: none;
+    font-family: 'Helvetica', sans-serif;
+    color: #FFF200;
+}
+/* ================================
+   REPOSITORY CAROUSEL
+   ================================ */
+
+.repositories-section {
+    width:100%;
+}
+
+.repo-carousel {
+    width:100%;
+    background:#fff;
+    border:0;
+    box-sizing:border-box;
+}
+
+
+/* ================================
+    VIEWPORT
+    ================================ */
+
+.repo-viewport {
+    width:100%;
+    overflow:hidden;
+}
+
+.repo-track{
+width:100%;
+}
+
+
+/* ================================
+    PAGINA
+    ================================ */
+
+.repo-page {
+    width:100%;
+}
+
+
+/* ================================
+    RIGA REPOSITORY
+    ================================ */
+
+.repo-row {
+    display:grid;
+
+    grid-template-columns:
+        56px
+        minmax(150px, 1.1fr)
+        minmax(90px, .65fr)
+        minmax(220px, 2fr)
+        28px;
+
+    align-items:center;
+    gap:18px;
+
+    width:100%;
+
+    padding:15px 18px;
+
+    box-sizing:border-box;
+
+    background:#fff;
+
+    border-bottom:1px solid rgba(1,33,105,.15);
+
+    color:#012169;
+
+    text-decoration:none;
+
+    transition:
+        background-color .18s ease,
+        color .18s ease;
+    }
+
+
+/* ================================
+    NUMERO
+    ================================ */
+
+.repo-index{
+    font-family:"Doto","IBM Plex Mono",monospace;
+    font-size:.95rem;
+    font-weight:900;
+
+    color:#0092BC;
+    -webkit-text-fill-color:#0092BC;
+
+    text-shadow:none;
+}
+
+
+/* ================================
+    NOME REPOSITORY
+    ================================ */
+
+.repo-name{
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.95rem;
+    font-weight:700;
+
+    color:#0092BC;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+
+/* ================================
+    LINGUAGGIO
+    ================================ */
+
+.repo-language{
+    justify-self:start;
+
+    display:inline-flex;
+    align-items:center;
+
+    padding:4px 8px;
+
+    font-family:"Doto","IBM Plex Mono",monospace;
+    font-size:.72rem;
+    font-weight:800;
+
+    color:#ff00c8;
+
+    border:1px solid #ff00c8;
+
+    background:transparent;
+
+    white-space:nowrap;
+}
+
+
+/* ================================
+    DESCRIZIONE
+    ================================ */
+
+.repo-description{
+    min-width:0;
+
+    font-family:"IBM Plex Mono",monospace;
+
+    font-size:.82rem;
+    line-height:1.45;
+
+    color:#56636b;
+
+    /*
+        Valore negativo =
+        descrizione leggermente
+        più a sinistra.
+    */
+
+    margin-left:-8px;
+
+    overflow:hidden;
+
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+
+
+/* ================================
+    FRECCIA DELLA RIGA
+    ================================ */
+
+.repo-arrow {
+    justify-self:end;
+
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.05rem;
+
+    color:#56636b;
+
+    transition:transform .18s ease;
+}
+
+
+/* ================================
+    HOVER RIGA
+    ================================ */
+
+.repo-row:hover,
+.repo-row:focus-visible {
+    background:#FF7A00;
+
+    outline:0;
+}
+
+
+.repo-row:hover .repo-index,
+.repo-row:hover .repo-name,
+.repo-row:hover .repo-language,
+.repo-row:hover .repo-description,
+.repo-row:hover .repo-arrow,
+
+.repo-row:focus-visible .repo-index,
+.repo-row:focus-visible .repo-name,
+.repo-row:focus-visible .repo-language,
+.repo-row:focus-visible .repo-description,
+.repo-row:focus-visible .repo-arrow {
+    color:#fff;
+    -webkit-text-fill-color:#fff;
+}
+
+
+.repo-row:hover .repo-language,
+.repo-row:focus-visible .repo-language {
+    border-color:#fff;
+}
+
+
+.repo-row:hover .repo-arrow,
+.repo-row:focus-visible .repo-arrow {
+    transform:translateX(3px);
+}
+
+
+/* ================================
+    CONTROLLI CAROSELLO
+    ================================ */
+
+.repo-carousel-controls {
+    display:grid;
+
+    grid-template-columns:
+        44px
+        1fr
+        44px;
+
+    align-items:center;
+
+    width:100%;
+
+    padding:18px;
+
+    box-sizing:border-box;
+}
+
+
+/* ================================
+    FRECCE CAROSELLO
+    ================================ */
+
+.repo-nav {
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    border:1px solid #012169;
+
+    background:#fff;
+
+    color:#012169;
+
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.1rem;
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+        background-color .18s ease,
+        color .18s ease;
+}
+
+
+#repoPrev {
+    justify-self:start;
+}
+
+
+#repoNext {
+    justify-self:end;
+}
+
+
+.repo-nav:hover,
+.repo-nav:focus-visible {
+    background:#012169;
+
+    color:#fff;
+
+    outline:0;
+}
+
+
+.repo-nav:disabled {
+    opacity:.25;
+    cursor:default;
+}
+
+
+/* ================================
+    INDICATORI PAGINA
+    perfettamente centrati tra frecce
+    ================================ */
+
+.repo-pagination {
+    justify-self:center;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:7px;
+}
+
+
+    /* rettangolino */
+
+.repo-dot {
+    width:22px;
+    height:5px;
+
+    padding:0;
+
+    border:0;
+
+    background:rgba(1,33,105,.22);
+
+    cursor:pointer;
+
+    transition:
+        background-color .18s ease,
+        transform .18s ease;
+}
+
+
+/* pagina corrente */
+
+.repo-dot.active {
+    background:#012169;
+}
+
+
+/* opzionale */
+
+.repo-dot:hover {
+    background:#012169;
+}
+
+
+/* ================================
+    COUNTER
+    conservato ma nascosto
+    ================================ */
+
+.repo-counter {
+    display:none;
+}
+
+
+/* ================================
+    ERRORE
+    ================================ */
+
+.repo-error {
+    display:none;
+
+    padding:16px;
+
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.8rem;
+
+    color:#e85d4b;
+}
+
+
+/* ================================
+    MOBILE
+    ================================ */
+
+@media(max-width:720px) {
+
+    .repo-row {
+        grid-template-columns:
+        38px
+        minmax(0,1fr)
+        auto;
+
+        gap:9px 12px;
+
+        padding:14px 12px;
+    }
+
+
+    .repo-index{
+        grid-column:1;
+        grid-row:1 / span 2;
+    }
+
+
+    .repo-name{
+        grid-column:2;
+        grid-row:1;
+    }
+
+
+    .repo-language{
+        grid-column:3;
+        grid-row:1;
+    }
+
+
+    .repo-description{
+        grid-column:2 / 4;
+        grid-row:2;
+
+        margin-left:0;
+
+        white-space:normal;
+    }
+
+
+    .repo-arrow{
+        display:none;
+    }
+
+
+    .repo-carousel-controls{
+        grid-template-columns:
+        40px
+        1fr
+        40px;
+
+        padding:15px 12px;
+    }
+
 }
 .complex-audio-fullwidth{
     width:100%;

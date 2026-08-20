@@ -135,7 +135,7 @@
           <div class="category">03 / PROGETTI</div>
             <h2>SELEZIONE DI LAVORI</h2>
             <div class="cards selezione">
-              <div class="card cardlink">
+              <div class="card cardlink cyan">
                 <a href="web-projects.html">
                   <h4>WEB APP · CS50W</h4>
                   <h3>MARKETPLACE DJANGO</h3>
@@ -144,7 +144,7 @@
                   <div>ESPLORA LAVORI &#8594;</div>
                 </a>
               </div>
-              <div class="card cardlink">
+              <div class="card cardlink orange">
                 <a href="computer-music.html">
                   <h4>COMPUTER MUSIC</h4>
                   <h3>GENERATIVE AUDIO SYSTEMS</h3>
@@ -153,7 +153,7 @@
                   <div>ESPLORA LAVORI &#8594;</div>
                 </a>
               </div>
-              <div class="card cardlink">
+              <div class="card cardlink green">
                 <a href="interactive-media.html">
                   <h4>INTERACTIVE MEDIA</h4>
                   <h3>AUDIO + COMPUTER VISION</h3>
@@ -166,9 +166,60 @@
        </div>
     </div>
 
-    <div id="repository" class="section">
-        <h2>REPOSITORY</h2>
-        <p>Puoi trovare il mio codice sorgente e i miei progetti su GitHub. Visita il mio profilo per esplorare i repository e contribuire ai progetti open source.</p>
+    <div id="repository" class="section repository">
+        <div class="category">04 / CODE REPOSITORY</div>
+          <h2>REPOSITORY E CODICE SORGENTE</h2>
+          <p>Codice sorgente di applicazioni web, progetti CS50W e sperimentazioni in computer music, creative coding e sistemi interattivi.</p>
+        </div>
+        <div>
+          <section id="repositories" class="repositories-section">
+
+            <div class="repo-carousel">
+          
+              <div class="repo-viewport">
+                <div id="repoTrack" class="repo-track"></div>
+              </div>
+          
+              <div class="repo-carousel-controls">
+          
+                <button
+                  id="repoPrev"
+                  class="repo-nav"
+                  type="button"
+                  aria-label="Pagina precedente"
+                >
+                  ←
+                </button>
+          
+                <div
+                  id="repoPagination"
+                  class="repo-pagination"
+                  aria-label="Paginazione repository"
+                ></div>
+          
+                <button
+                  id="repoNext"
+                  class="repo-nav"
+                  type="button"
+                  aria-label="Pagina successiva"
+                >
+                  →
+                </button>
+          
+              </div>
+          
+              <!-- Lo manteniamo disponibile per usi futuri -->
+              <div id="repoCounter" class="repo-counter" aria-hidden="true"></div>
+          
+              <div id="repoError" class="repo-error"></div>
+          
+            </div>
+          
+          </section>
+        </div>
+        <div>
+          <a href="https://github.com/giovannibenda">VEDI IL TUO PROFILO COMPLETO &#8599;</a>
+        </div>
     </div>
 
     <div id="contatti" class="section">
@@ -210,6 +261,7 @@
 
     <script src="binary.js"></script>
     <script src="wave.js"></script>
+    <script src="repository.js"></script>
     
 </body>
 </html>

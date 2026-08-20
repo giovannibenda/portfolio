@@ -1,0 +1,74 @@
+[
+  {
+    "name": "biografia",
+    "description": "Sito enciclopedico / progetto web",
+    "url": "https://github.com/pasqualeedgardogiuseppedascola/biografia",
+    "language": "HTML / JS"
+  },
+  {
+    "name": "commerce",
+    "description": "CS50W · Marketplace full-stack sviluppato con Django",
+    "url": "https://github.com/USERNAME/commerce",
+    "language": "Python / Django"
+  },
+  {
+    "name": "computer-music",
+    "description": "Patch, sintesi e composizione algoritmica",
+    "url": "https://github.com/USERNAME/computer-music",
+    "language": "SuperCollider"
+  },
+  {
+    "name": "creative-coding",
+    "description": "Visuali, interazione e computer vision",
+    "url": "https://github.com/USERNAME/creative-coding",
+    "language": "Processing"
+  },
+  {
+    "name": "audio-tools",
+    "description": "Utility e prototipi per elaborazione audio",
+    "url": "https://github.com/USERNAME/audio-tools",
+    "language": "JavaScript"
+  },
+  {
+    "name": "wiki-project",
+    "description": "CS50W · Wiki con ricerca, modifica delle pagine e Markdown",
+    "url": "https://github.com/USERNAME/wiki-project",
+    "language": "Django"
+  },
+  {
+    "name": "mail-spa",
+    "description": "CS50W · Single-page application JavaScript per gestione email",
+    "url": "https://github.com/USERNAME/mail-spa",
+    "language": "JavaScript"
+  },
+  {
+    "name": "sonification",
+    "description": "Esperimenti di conversione dati-suono",
+    "url": "https://github.com/USERNAME/sonification",
+    "language": "Python / Audio"
+  },
+  {
+    "name": "pure-data-patches",
+    "description": "Patch interattive e prototipi musicali",
+    "url": "https://github.com/USERNAME/pure-data-patches",
+    "language": "Pure Data"
+  },
+  {
+    "name": "opencv-audio",
+    "description": "Computer vision applicata al controllo sonoro",
+    "url": "https://github.com/USERNAME/opencv-audio",
+    "language": "OpenCV"
+  },
+  {
+    "name": "web-experiments",
+    "description": "Esperimenti frontend e interfacce web",
+    "url": "https://github.com/USERNAME/web-experiments",
+    "language": "HTML / CSS / JS"
+  },
+  {
+    "name": "csound-studies",
+    "description": "Studi di sintesi ed elaborazione in Csound",
+    "url": "https://github.com/USERNAME/csound-studies",
+    "language": "Csound"
+  }
+]
