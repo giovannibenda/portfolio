@@ -192,7 +192,7 @@ header {
     color: #F97A01;
 }
 
-.hero {
+.hero{
     display: grid;
     grid-template-columns: auto auto;
     justify-content: space-between;
@@ -201,7 +201,6 @@ header {
     color: white;
     padding: 50px;
 }
-
 .hero h1 {
     font-family: 'Helvetica', sans-serif;
     font-size: 4rem;
@@ -222,19 +221,16 @@ header {
     transition: 0.2s ease;
     margin-right: 10px;
 }
-
 .hero .button:hover {
     color: cyan;
     background-color: transparent;
     border: 1px solid cyan;
     transition: 0.2s ease;
 }
-
 .hero-panel{
     width:100%;
     min-width:0;
-}
-  
+} 
 .terminal{
     width:100%;
     background:#fff;
@@ -244,7 +240,6 @@ header {
       0 0 22px rgba(255,245,0,.18);
     overflow:hidden;
 }
-  
 .terminal-top{
     display:flex;
     align-items:center;
@@ -252,33 +247,27 @@ header {
     padding:12px 14px;
     border-bottom:1px solid rgba(1,33,105,.16);
 }
-  
 .terminal-dot{
     width:10px;
     height:10px;
     border-radius:50%;
     display:block;
 }
-  
 .terminal-dot-pink{
     background:#ff00c8;
 }
-  
 .terminal-dot-yellow{
     background:#fff500;
 }
-  
 .terminal-dot-green{
     background:#9dff00;
     animation:terminal-dot-flicker 4s infinite;
 }
-  
 .terminal-body{
     padding:22px 24px 24px;
     font-family:"IBM Plex Mono",monospace;
     color:#012169;
 }
-  
 .terminal-line{
     display:flex;
     align-items:baseline;
@@ -287,11 +276,9 @@ header {
     font-size:.96rem;
     line-height:1.5;
 }
-  
 .terminal-line:first-child{
     margin-top:0;
 }
-  
 .terminal-prompt{
     color:#ff00c8;
     font-size:1.32em;
@@ -299,12 +286,10 @@ header {
     line-height:1;
     text-shadow:0 0 5px rgba(255,0,200,.45);
 }
-  
 .terminal-command{
     color:#ff00c8;
     font-weight:800;
 }
-  
 .terminal-output{
     margin-top:7px;
     color:#012169;
@@ -312,7 +297,6 @@ header {
     font-weight:600;
     line-height:1.55;
 }
-  
 .terminal-status{
     display:inline-block;
     margin-top:22px;
@@ -332,7 +316,6 @@ header {
       0 0 7px rgba(157,255,0,.85),
       0 0 14px rgba(157,255,0,.45);
 }
-  
 @keyframes terminal-dot-flicker{
     0%,19%,22%,24%,55%,100%{
       opacity:1;
@@ -342,7 +325,6 @@ header {
       opacity:.3;
     }
 }
-  
 @media(max-width:620px){
     .terminal-body{
         padding:18px;
@@ -358,16 +340,16 @@ header {
 }
 .section {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 50% 50%;
     justify-content: space-around;
-    padding: 10px;
+    padding: 50px;
     background-color: #122169;
     color: white;
 }
 .section h2 {
     font-family: 'Helvetica', sans-serif;
+    font-size: 3rem;
     color: #f2f2f2;
-    text-align: center;
 }
 .section button {
     font-family: 'Doto', sans-serif;
@@ -377,6 +359,102 @@ header {
     padding: 10px;
     border-radius: 5px;
     transition: 0.2s ease;
+}
+.description.description1 {
+    border-top: solid 2px #3A62FE;
+    border-left: transparent;
+    padding-top: 50px;
+}
+.description.description2 {
+    border-left: solid 2px #3A62FE;
+    padding-left: 10px;
+}
+.section.stack, .section.progetti {
+    display: grid;
+    grid-template-columns: auto;
+}
+.cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    justify-content: space-around;
+}
+.card {
+    background-color: #f2f2f2;
+    color: #122169;
+    padding: 20px;
+    border: 5px solid transparent;
+    border-radius: 5px;
+    transition: transform .25s ease;
+    transform-origin: center;
+}
+.card h3 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.5rem;
+    color: #37B1AB;
+}
+.card div {
+    font-family: 'IBM Mono Plex', monospace;
+    color: #122169;
+    font-size: 1rem;
+}
+.card:hover {
+    background-color: #EAF7F9;
+    color: #f2f2f2;
+    transition: 0.2s ease;
+    border: 5px solid #FF7A00;
+    box-shadow:
+    0 0 2px #FF7A00,
+    0 0 8px rgba(255, 122, 0, .75),
+    0 0 20px rgba(255, 122, 0, .35);
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.card:hover h3 {
+    color: #122169;
+}
+.card:hover div {
+    color: #37B1AB;;
+}
+.cards.selezione {
+    grid-template-columns: 2fr 2fr 2fr;
+}
+.cards.selezione div:nth-child(1)>a>h4:nth-child(1), div:nth-child(1)>a>h3:nth-child(2), div:nth-child(1)>a>div:nth-child(5) {
+    color: #4DBAB4;
+}
+.cards.selezione div:nth-child(2)>a>h4:nth-child(1), div:nth-child(2)>a>h3:nth-child(2), div:nth-child(2)>a>div:nth-child(5) {
+    color: #FF7A00;
+}
+.cards.selezione div:nth-child(3)>a>h4:nth-child(1), div:nth-child(3)>a>h3:nth-child(2), div:nth-child(3)>a>div:nth-child(5) {
+    color: #9DFF00;
+}
+.card.cardlink a {
+    text-decoration: none;
+}
+.tags-languages {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    justify-content: left;
+    font-family: 'Doto', sans-serif;
+}
+.cards.selezione div:nth-child(1)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #2B7A7A;
+    color: black;
+    padding: 5px;
+}
+.cards.selezione div:nth-child(2)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #FF7A00;
+    color: black;
+    padding: 5px;
+}
+.cards.selezione div:nth-child(3)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #9DFF00;
+    color: black;
+    padding: 5px;
 }
 .complex-audio-fullwidth{
     width:100%;
@@ -448,6 +526,7 @@ header {
   
 #complexWave{
     visibility:hidden;
+    overflow: hidden;
     opacity:0;
   
     position:absolute;
@@ -462,6 +541,8 @@ header {
     height:110px;
     background:#fff;
   
+    transform: scaleX(1);
+    transform-origin: center center;
     border:0;
     outline:0;
   

@@ -180,31 +180,31 @@
   
       const carrier =
       Math.sin(
-          x * 0.0065 +
+          x * 5.5 +
           phase
       );
   
       const modulation =
       Math.sin(
           x * 0.0022 -
-          phase * 1.4
+          phase * .4
       );
   
       const harmonic =
       Math.sin(
           x * 0.014 +
-          phase * 2.1
+          phase * .05
       );
   
       const highFrequency =
       Math.sin(
-          x * 0.032 -
-          phase * 3.4
+          x * 0.32 -
+          phase * .4
       );
   
       const irregular =
       pseudoNoise(
-          x * 0.018 +
+          x * .18 +
           time
       );
   
@@ -214,16 +214,16 @@
       Math.sin(
           x * 0.0055 +
           phase +
-          modulation * 1.35
-      ) * .18
+          modulation * .35
+      ) * .2
   
       +
   
-      carrier * .34
+      carrier * .0084
   
       +
   
-      harmonic * .20
+      harmonic * .003
   
       +
   
@@ -281,7 +281,7 @@
       */
   
       const amplitude =
-        height * .34;
+        height * .5;
   
   
       /*
@@ -305,7 +305,7 @@
         waveform molto fitta / oscilloscope
       */
   
-      const step = 2;
+      const step = 5;
   
   
       for(
@@ -322,7 +322,7 @@
   
         const sourceX =
           width - x +
-          time * 260;
+          time * 160;
   
   
         const sample =
@@ -362,9 +362,9 @@
         Movimento molto rapido
       */
   
-      phase += .12;
+      phase += .15;
   
-      time += .045;
+      time += .0045;
   
   
       requestAnimationFrame(draw);
