@@ -5,9 +5,8 @@ header {
     z-index: 1000;
     position: sticky;
 }
-
 .logo {
-    font-family:"IBM Plex Mono",monospace;
+    font-family:'Doto', sans-serif;
     font-size:clamp(1.05rem,1.45vw,1.30rem);
     font-weight:700;
     letter-spacing:.04em;
@@ -27,16 +26,13 @@ header {
         opacity:.28;
     }
 }
-
 #menu {
     display: grid;
     grid-template-columns: auto  auto  auto auto auto;
 }
-
 #menu li {
     list-style-type: none;
 }
-
 #menu a {
     text-decoration: none;
     font-family: 'Doto', sans-serif;
@@ -44,86 +40,66 @@ header {
     padding: 10px;
     transition: 0.2s ease;
 }
-
 #menu a:hover {
     color: #f2f2f2;
     background-color: #122169;
     border-radius: 5px;
     transition: 0.2s ease;
 }
-.binary-signal-strip{
+.binary-signal-strip {
     width:100%;
     min-width:0;
-  
     padding:10px 14px;
-  
     background:#fff;
     border:1px solid #012169;
-  
     box-sizing:border-box;
     overflow:hidden;
 }
-  
-.binary-signal-head{
+.binary-signal-head {
     display:flex;
     align-items:center;
     justify-content:space-between;
   
     margin-bottom:7px;
 }
-  
 .binary-label,
-.binary-status{
+.binary-status {
     font-family:"IBM Plex Mono",monospace;
     font-size:.72rem;
     font-weight:700;
     line-height:1;
-  
     letter-spacing:.08em;
     text-transform:uppercase;
 }
-  
-.binary-label{
+.binary-label {
     color:#012169;
 }
-  
-.binary-status{
+.binary-status {
     color:#e85d4b;
 }
-  
-.binary-stream{
+.binary-stream {
     width:100%;
     min-width:0;
     max-width:100%;
-  
     overflow:hidden;
-  
     white-space:nowrap;
-  
     font-family:"IBM Plex Mono",monospace;
     font-size:.78rem;
     font-weight:600;
     line-height:1.2;
-  
     letter-spacing:.08em;
-  
     color:#6d7480;
-  
     user-select:none;
-  
     box-sizing:border-box;
 }
-  
 @media(max-width:620px){
     .binary-signal-strip{
       padding:9px 10px;
     }
-    
     .binary-stream{
         font-size:.66rem;
         letter-spacing:.055em;
-    }
-    
+    }  
     .binary-label,
     .binary-status{
         font-size:.65rem;
@@ -136,19 +112,15 @@ header {
     font-size:.93rem;
     font-weight:900;
     line-height:1.2;
-  
     letter-spacing:.012em;
     text-transform:uppercase;
-  
     color:#9dff00;
     -webkit-text-fill-color:#9dff00;
     -webkit-text-stroke:.12px currentColor;
-  
     text-shadow:
       0 0 2px currentColor,
       0 0 6px currentColor,
       0 0 13px currentColor;
-  
     opacity:1;
     filter:none;
     background:transparent;
@@ -191,7 +163,9 @@ header {
 .tags .tag:nth-child(3)>span {
     color: #F97A01;
 }
-
+header, .binary-signal-strip, .hero, .section {
+    margin-bottom: 30px;
+}
 .hero{
     display: grid;
     grid-template-columns: auto auto;
@@ -504,216 +478,193 @@ header {
 .section.repository {
     display: grid;
     grid-template-columns: auto;
+    gap: 20px;
     justify-content: left;
 }
-.section.repository div:nth-child(2) {
-    border-bottom: 2px solid #006CFF;
+.section.repository div:nth-child(1)>p {
+    border-bottom: 2px solid #3A62FE;
 }
-.section.repository div:nth-child(3)>a {
+.section.repository div:nth-child(1)>p {
+    font-family: "Doto", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: white;
+}
+.section.repository div:nth-child(3)>a, .section.contatti div:nth-child(2) button {
     text-decoration: none;
     font-family: 'Helvetica', sans-serif;
     color: #FFF200;
+    background-color: transparent;
+    text-shadow:
+        0 0 2px #FFF200,
+        0 0 6px rgba(255,242,0,.65);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        text-shadow .2s ease;
+}
+.section.repository div:nth-child(3)>a:hover, .section.contatti div:nth-child(2) button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    transform:scale(1.04);
+    text-shadow:
+      0 0 2px #FFF200,
+      0 0 6px #FFF200,
+      0 0 14px rgba(255,242,0,.85);
+    box-shadow:
+      0 0 2px #FFF200,
+      0 0 7px rgba(255,242,0,.95),
+      0 0 16px rgba(255,242,0,.65),
+      0 0 30px rgba(255,242,0,.30);
+    animation: github-neon-flicker 1.8s infinite;
+  }
+@keyframes github-neon-flicker{
+    0%,18%,22%,25%,53%,57%,100%{
+        opacity:1;
+    }
+
+    20%,24%{
+        opacity:.72;
+    }
+
+    55%{
+        opacity:.88;
+    }
 }
 /* ================================
    REPOSITORY CAROUSEL
    ================================ */
-
 .repositories-section {
     width:100%;
 }
-
 .repo-carousel {
     width:100%;
     background:#fff;
     border:0;
     box-sizing:border-box;
 }
-
-
 /* ================================
     VIEWPORT
     ================================ */
-
 .repo-viewport {
     width:100%;
     overflow:hidden;
 }
-
 .repo-track{
 width:100%;
 }
-
-
 /* ================================
     PAGINA
     ================================ */
-
 .repo-page {
     width:100%;
 }
-
-
 /* ================================
     RIGA REPOSITORY
     ================================ */
-
 .repo-row {
     display:grid;
-
     grid-template-columns:
         56px
         minmax(150px, 1.1fr)
         minmax(90px, .65fr)
         minmax(220px, 2fr)
         28px;
-
     align-items:center;
     gap:18px;
-
     width:100%;
-
     padding:15px 18px;
-
     box-sizing:border-box;
-
     background:#fff;
-
     border-bottom:1px solid rgba(1,33,105,.15);
-
     color:#012169;
-
     text-decoration:none;
-
     transition:
         background-color .18s ease,
         color .18s ease;
     }
-
-
 /* ================================
     NUMERO
     ================================ */
-
 .repo-index{
     font-family:"Doto","IBM Plex Mono",monospace;
     font-size:.95rem;
     font-weight:900;
-
     color:#0092BC;
     -webkit-text-fill-color:#0092BC;
-
     text-shadow:none;
 }
-
-
 /* ================================
     NOME REPOSITORY
     ================================ */
-
 .repo-name{
     font-family:"IBM Plex Mono",monospace;
-
     font-size:.95rem;
     font-weight:700;
-
     color:#0092BC;
-
     overflow:hidden;
-
     white-space:nowrap;
     text-overflow:ellipsis;
 }
-
-
 /* ================================
     LINGUAGGIO
     ================================ */
-
 .repo-language{
     justify-self:start;
-
     display:inline-flex;
     align-items:center;
-
     padding:4px 8px;
-
-    font-family:"Doto","IBM Plex Mono",monospace;
-    font-size:.72rem;
+    font-family:"Doto", sans-serif;
+    font-size: 0.8rem;
     font-weight:800;
-
     color:#ff00c8;
-
     border:1px solid #ff00c8;
-
     background:transparent;
-
     white-space:nowrap;
 }
-
-
 /* ================================
     DESCRIZIONE
     ================================ */
-
 .repo-description{
     min-width:0;
-
-    font-family:"IBM Plex Mono",monospace;
-
-    font-size:.82rem;
+    font-family:"Doto", sans-serif;
+    font-size: 0.9rem;
     line-height:1.45;
-
     color:#56636b;
-
     /*
         Valore negativo =
         descrizione leggermente
         più a sinistra.
     */
-
     margin-left:-8px;
-
     overflow:hidden;
-
     white-space:nowrap;
     text-overflow:ellipsis;
 }
-
-
 /* ================================
     FRECCIA DELLA RIGA
     ================================ */
-
 .repo-arrow {
     justify-self:end;
-
     font-family:"IBM Plex Mono",monospace;
     font-size:1.05rem;
-
     color:#56636b;
-
     transition:transform .18s ease;
 }
-
-
 /* ================================
     HOVER RIGA
     ================================ */
-
 .repo-row:hover,
 .repo-row:focus-visible {
     background:#FF7A00;
-
     outline:0;
 }
-
-
 .repo-row:hover .repo-index,
 .repo-row:hover .repo-name,
 .repo-row:hover .repo-language,
 .repo-row:hover .repo-description,
 .repo-row:hover .repo-arrow,
-
 .repo-row:focus-visible .repo-index,
 .repo-row:focus-visible .repo-name,
 .repo-row:focus-visible .repo-language,
@@ -722,212 +673,137 @@ width:100%;
     color:#fff;
     -webkit-text-fill-color:#fff;
 }
-
-
 .repo-row:hover .repo-language,
 .repo-row:focus-visible .repo-language {
     border-color:#fff;
 }
-
-
 .repo-row:hover .repo-arrow,
 .repo-row:focus-visible .repo-arrow {
     transform:translateX(3px);
 }
-
-
 /* ================================
     CONTROLLI CAROSELLO
     ================================ */
-
 .repo-carousel-controls {
     display:grid;
-
     grid-template-columns:
         44px
         1fr
         44px;
-
     align-items:center;
-
     width:100%;
-
     padding:18px;
-
     box-sizing:border-box;
 }
-
-
 /* ================================
     FRECCE CAROSELLO
     ================================ */
-
 .repo-nav {
     width:40px;
     height:40px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     padding:0;
-
     border:1px solid #012169;
-
     background:#fff;
-
     color:#012169;
-
     font-family:"IBM Plex Mono",monospace;
     font-size:1.1rem;
     font-weight:700;
-
     cursor:pointer;
-
     transition:
         background-color .18s ease,
         color .18s ease;
 }
-
-
 #repoPrev {
     justify-self:start;
 }
-
-
 #repoNext {
     justify-self:end;
 }
-
-
 .repo-nav:hover,
 .repo-nav:focus-visible {
     background:#012169;
-
     color:#fff;
-
     outline:0;
 }
-
-
 .repo-nav:disabled {
     opacity:.25;
     cursor:default;
 }
-
-
 /* ================================
     INDICATORI PAGINA
     perfettamente centrati tra frecce
     ================================ */
-
 .repo-pagination {
     justify-self:center;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     gap:7px;
 }
-
-
-    /* rettangolino */
-
+/* rettangolino */
 .repo-dot {
     width:22px;
     height:5px;
-
     padding:0;
-
     border:0;
-
     background:rgba(1,33,105,.22);
-
     cursor:pointer;
-
     transition:
         background-color .18s ease,
         transform .18s ease;
 }
-
-
 /* pagina corrente */
-
 .repo-dot.active {
     background:#012169;
 }
-
-
 /* opzionale */
-
 .repo-dot:hover {
     background:#012169;
 }
-
-
 /* ================================
     COUNTER
     conservato ma nascosto
     ================================ */
-
 .repo-counter {
     display:none;
 }
-
-
 /* ================================
     ERRORE
     ================================ */
-
 .repo-error {
     display:none;
-
     padding:16px;
-
     font-family:"IBM Plex Mono",monospace;
     font-size:.8rem;
-
     color:#e85d4b;
 }
-
-
 /* ================================
     MOBILE
     ================================ */
-
 @media(max-width:720px) {
-
     .repo-row {
         grid-template-columns:
         38px
         minmax(0,1fr)
         auto;
-
         gap:9px 12px;
-
         padding:14px 12px;
     }
-
-
     .repo-index{
         grid-column:1;
         grid-row:1 / span 2;
     }
-
-
     .repo-name{
         grid-column:2;
         grid-row:1;
     }
-
-
     .repo-language{
         grid-column:3;
         grid-row:1;
     }
-
-
     .repo-description{
         grid-column:2 / 4;
         grid-row:2;
@@ -936,13 +812,9 @@ width:100%;
 
         white-space:normal;
     }
-
-
     .repo-arrow{
         display:none;
     }
-
-
     .repo-carousel-controls{
         grid-template-columns:
         40px
@@ -951,76 +823,149 @@ width:100%;
 
         padding:15px 12px;
     }
-
+}
+.section.contatti {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: left;
+    padding: 50px;
+    gap: 50px;
+    background-color: #122169;
+    color: white;
+}
+.section.contatti div:nth-child(1)>p {
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: white;
+}
+.section.contatti div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.form input, .form textarea {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: 100%;
+}
+.form button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: 100px;
+    cursor: pointer;
+}
+.form button:hover {
+    color: #f2f2f2;
+    background-color: #e85d4b;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+.section.contatti div:nth-child(2) {
+    width: 80%;
+    height: auto;
+}
+.section.contatti div:nth-child(2) button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: auto;
+}
+.section.contatti div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section.contatti div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.section.contatti div:nth-child(4) i {
+    font-family: 'Doto', sans-serif;
+    font-size: 30px;
+    color: white;
+}
+.section.contatti div:nth-child(4) a {
+    text-decoration: none;
+    font-style: normal;
+    color: white;
+}
+.section.contatti div:nth-child(4) a:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
+    cursor: pointer;
 }
 .complex-audio-fullwidth{
     width:100%;
     min-width:0;
-  
     box-sizing:border-box;
-  
     background:#fff;
 }
-  
 .complex-wave-console{
     position:relative;
-  
     width:100%;
     min-width:0;
-  
     overflow:hidden;
-  
     background:#fff;
     border:0;
-  
     box-sizing:border-box;
 }
-  
 .wave-console-head{
     display:flex;
     align-items:center;
     justify-content:space-between;
-  
     padding:8px 12px 6px;
-  
     font-family:"IBM Plex Mono",monospace;
     font-size:.72rem;
     font-weight:700;
     line-height:1;
-  
     letter-spacing:.08em;
     text-transform:uppercase;
 }
-  
 .wave-label{
     color:#012169;
 }
-  
 .wave-status{
     color:#e85d4b;
 }
-  
 .complex-wave{
     display:block;
-  
     width:100%;
     height:110px;
-  
     background:#fff;
-  
     border:0;
     outline:0;
-  
     box-sizing:border-box;
 }
-  
   /*
     Il canvas HTML originale viene usato
     soltanto come riferimento strutturale.
     Il JS crea sopra di esso il canvas
     realmente animato.
   */
-  
 #complexWave{
     visibility:hidden;
     overflow: hidden;
@@ -1030,8 +975,7 @@ width:100%;
   
     pointer-events:none;
 }
-  
-  #zoomedSineScope {
+#zoomedSineScope {
     display:block;
   
     width:100%;
@@ -1045,9 +989,7 @@ width:100%;
   
     box-sizing:border-box;
 }
-  
 @media(max-width:620px){
-  
     .wave-console-head{
       padding:7px 10px 5px;
   
@@ -1065,13 +1007,11 @@ footer {
     padding: 10px;
     justify-content: space-between;
 }
-
 footer p {
     font-family: 'Helvetica', sans-serif;
     color: #122169;
     font-size: 12px;
 }
-
 footer a {
     text-decoration: none;
     font-family: 'Doto', sans-serif;
