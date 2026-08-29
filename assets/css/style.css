@@ -1,0 +1,1019 @@
+header {
+    display:grid;
+    grid-template-columns: auto auto;
+    border-bottom: 2px solid #3A62FE;
+    z-index: 1000;
+    position: sticky;
+}
+.logo {
+    font-family:'Doto', sans-serif;
+    font-size:clamp(1.05rem,1.45vw,1.30rem);
+    font-weight:700;
+    letter-spacing:.04em;
+    
+    color:#012169;
+    -webkit-text-fill-color:#012169;
+    
+    animation:flicker 5.5s infinite;
+    }
+    
+    @keyframes flicker{
+    0%,19%,22%,24%,55%,100%{
+        opacity:1;
+    }
+    
+    20%,23%,54%{
+        opacity:.28;
+    }
+}
+#menu {
+    display: grid;
+    grid-template-columns: auto  auto  auto auto auto;
+}
+#menu li {
+    list-style-type: none;
+}
+#menu a {
+    text-decoration: none;
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    padding: 10px;
+    transition: 0.2s ease;
+}
+#menu a:hover {
+    color: #f2f2f2;
+    background-color: #122169;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+.binary-signal-strip {
+    width:100%;
+    min-width:0;
+    padding:10px 14px;
+    background:#fff;
+    border:1px solid #012169;
+    box-sizing:border-box;
+    overflow:hidden;
+}
+.binary-signal-head {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+  
+    margin-bottom:7px;
+}
+.binary-label,
+.binary-status {
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.72rem;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+.binary-label {
+    color:#012169;
+}
+.binary-status {
+    color:#e85d4b;
+}
+.binary-stream {
+    width:100%;
+    min-width:0;
+    max-width:100%;
+    overflow:hidden;
+    white-space:nowrap;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.78rem;
+    font-weight:600;
+    line-height:1.2;
+    letter-spacing:.08em;
+    color:#6d7480;
+    user-select:none;
+    box-sizing:border-box;
+}
+@media(max-width:620px){
+    .binary-signal-strip{
+      padding:9px 10px;
+    }
+    .binary-stream{
+        font-size:.66rem;
+        letter-spacing:.055em;
+    }  
+    .binary-label,
+    .binary-status{
+        font-size:.65rem;
+    }
+}
+.category {
+    margin:0 0 14px;
+  
+    font-family:"Doto","Silkscreen",monospace;
+    font-size:.93rem;
+    font-weight:900;
+    line-height:1.2;
+    letter-spacing:.012em;
+    text-transform:uppercase;
+    color:#9dff00;
+    -webkit-text-fill-color:#9dff00;
+    -webkit-text-stroke:.12px currentColor;
+    text-shadow:
+      0 0 2px currentColor,
+      0 0 6px currentColor,
+      0 0 13px currentColor;
+    opacity:1;
+    filter:none;
+    background:transparent;
+    border:0;
+    box-shadow:none;
+    transform:none;
+}
+.description {
+    margin:0 0 18px;
+    font-family:"Doto","Silkscreen",monospace;
+    font-size:.9rem;
+    font-weight:600;
+    line-height:1.55;
+    color: white;
+    border-left: solid 2px #3A62FE;
+}
+.description div {
+    padding-left: 10px;
+}
+.tag {
+    display:inline-block;
+    margin:0 6px 6px 0;
+    padding:3px 8px;
+  
+    font-family:"Doto","Silkscreen",monospace;
+    font-size:.83rem;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:.03em;
+  
+    color: #122169;
+    background: white;
+    border-radius:3px;
+}
+
+.tags .tag:nth-child(1)>span, .tag:nth-child(2)>span {
+    color: #1F92BC;
+}
+
+.tags .tag:nth-child(3)>span {
+    color: #F97A01;
+}
+header, .binary-signal-strip, .hero, .section {
+    margin-bottom: 30px;
+}
+.hero{
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #122169;
+    color: white;
+    padding: 50px;
+}
+.hero h1 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 4rem;
+    color: #f2f2f2;
+}
+.hero .buttons {
+    display: flex;
+    margin-top: 20px;
+}
+.hero .button {
+    font-family: 'Helvetica', sans-serif;
+    text-decoration: none;
+    color: white;
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    border: 1px solid white;
+    transition: 0.2s ease;
+    margin-right: 10px;
+}
+.hero .button:hover {
+    color: cyan;
+    background-color: transparent;
+    border: 1px solid cyan;
+    transition: 0.2s ease;
+}
+.hero-panel{
+    width:100%;
+    min-width:0;
+} 
+.terminal{
+    width:100%;
+    background:#fff;
+    border:2px solid #fff500;
+    box-shadow:
+      0 0 8px rgba(255,245,0,.5),
+      0 0 22px rgba(255,245,0,.18);
+    overflow:hidden;
+}
+.terminal-top{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 14px;
+    border-bottom:1px solid rgba(1,33,105,.16);
+}
+.terminal-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:block;
+}
+.terminal-dot-pink{
+    background:#ff00c8;
+}
+.terminal-dot-yellow{
+    background:#fff500;
+}
+.terminal-dot-green{
+    background:#9dff00;
+    animation:terminal-dot-flicker 4s infinite;
+}
+.terminal-body{
+    padding:22px 24px 24px;
+    font-family:"IBM Plex Mono",monospace;
+    color:#012169;
+}
+.terminal-line{
+    display:flex;
+    align-items:baseline;
+    gap:9px;
+    margin-top:18px;
+    font-size:.96rem;
+    line-height:1.5;
+}
+.terminal-line:first-child{
+    margin-top:0;
+}
+.terminal-prompt{
+    color:#ff00c8;
+    font-size:1.32em;
+    font-weight:800;
+    line-height:1;
+    text-shadow:0 0 5px rgba(255,0,200,.45);
+}
+.terminal-command{
+    color:#ff00c8;
+    font-weight:800;
+}
+.terminal-output{
+    margin-top:7px;
+    color:#012169;
+    font-size:.9rem;
+    font-weight:600;
+    line-height:1.55;
+}
+.terminal-status{
+    display:inline-block;
+    margin-top:22px;
+    padding:5px 9px;
+    background:#1a1a1a;
+  
+    font-family:"Doto","Silkscreen",monospace;
+    font-size:.83rem;
+    font-weight:900;
+    line-height:1;
+    letter-spacing:.03em;
+    text-transform:lowercase;
+  
+    color:#9dff00;
+    text-shadow:
+      0 0 2px #9dff00,
+      0 0 7px rgba(157,255,0,.85),
+      0 0 14px rgba(157,255,0,.45);
+}
+@keyframes terminal-dot-flicker{
+    0%,19%,22%,24%,55%,100%{
+      opacity:1;
+    }
+  
+    20%,23%,54%{
+      opacity:.3;
+    }
+}
+@media(max-width:620px){
+    .terminal-body{
+        padding:18px;
+    }
+
+    .terminal-line{
+        font-size:.9rem;
+    }
+
+    .terminal-output{
+        font-size:.84rem;
+    }
+}
+.section {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-content: space-around;
+    padding: 50px;
+    background-color: #122169;
+    color: white;
+}
+.section h2 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 3rem;
+    color: #f2f2f2;
+}
+.section button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+.description.description1 {
+    border-top: solid 2px #3A62FE;
+    border-left: transparent;
+    padding-top: 50px;
+}
+.description.description2 {
+    border-left: solid 2px #3A62FE;
+    padding-left: 10px;
+}
+.section.stack, .section.progetti {
+    display: grid;
+    grid-template-columns: auto;
+}
+.cards {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 20px;
+    justify-content: space-around;
+}
+.card {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 0px;
+    background-color: #f2f2f2;
+    color: #122169;
+    padding: 20px;
+    border: 5px solid transparent;
+    border-radius: 5px;
+    transition: transform .25s ease;
+    transform-origin: center;
+}
+.card h3 {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.5rem;
+    color: #37B1AB;
+}
+.card div {
+    font-family: 'IBM Mono Plex', monospace;
+    color: #122169;
+    font-size: 1rem;
+}
+.card:hover {
+    background-color: #EAF7F9;
+    color: #f2f2f2;
+    transition: 0.2s ease;
+    border: 5px solid #FF7A00;
+    box-shadow:
+    0 0 2px #FF7A00,
+    0 0 8px rgba(255, 122, 0, .75),
+    0 0 20px rgba(255, 122, 0, .35);
+    transform: scale(1.01);
+    cursor: pointer;
+}
+.card:hover h3 {
+    color: #122169;
+}
+.card:hover div {
+    color: #37B1AB;;
+}
+.cards.selezione {
+    grid-template-columns: 2fr 2fr 2fr;
+}
+.cards.selezione div:nth-child(1)>a>h4, div:nth-child(2)>a>h4, div:nth-child(3)>a>h4 {
+    font-family: 'Helvetica', sans-serif;
+}
+.cards.selezione div:nth-child(1)>a>h4:nth-child(1), div:nth-child(1)>a>h3:nth-child(2), div:nth-child(1)>a>div:nth-child(5) {
+    color: #4DBAB4;
+}
+.cards.selezione div:nth-child(2)>a>h4:nth-child(1), div:nth-child(2)>a>h3:nth-child(2), div:nth-child(2)>a>div:nth-child(5) {
+    color: #FF7A00;
+}
+.cards.selezione div:nth-child(3)>a>h4:nth-child(1), div:nth-child(3)>a>h3:nth-child(2), div:nth-child(3)>a>div:nth-child(5) {
+    color: #9DFF00;
+}
+.card.cardlink {
+    border: 5px solid transparent;
+}   
+.card.cardlink:hover {
+    background-color: white;
+}
+.card.cardlink.cyan:hover {
+    border: 5px solid #37B1AB;
+    box-shadow:
+    0 0 5px #37B1AB,
+    0 0 8px rgba(0, 255, 251, 0.567),
+    0 0 20px rgba(0, 255, 242, 0.259);
+    transition: 0.2s ease;
+}
+.card.cardlink.orange:hover {
+    border: 5px solid #FF7A00;
+    box-shadow:
+    0 0 5px #FF7A00,
+    0 0 8px rgba(255, 122, 0, .75),
+    0 0 20px rgba(255, 123, 0, 0.577);
+    transition: 0.2s ease;
+}
+.card.cardlink.green:hover {
+    border: 5px solid #9DFF00;
+    box-shadow:
+    0 0 5px #9DFF00,
+    0 0 8px rgba(47, 255, 0, 0.707),
+    0 0 20px rgba(0, 255, 51, 0.227);
+    transition: 0.2s ease;
+}
+.card.cardlink a {
+    text-decoration: none;
+}
+.card.cardlink a>div:nth-child(3) {
+    margin-bottom: 20px;
+}
+.card.cardlink a>div:nth-child(4) {
+    margin-bottom: 20px;
+}
+.tags-languages {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    justify-content: left;
+    font-family: 'Doto', sans-serif;
+}
+.cards.selezione div:nth-child(1)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #2B7A7A;
+    color: black;
+    font-family: 'Doto', sans-serif;
+    padding: 5px;
+}
+.cards.selezione div:nth-child(2)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #FF7A00;
+    color: black;
+    font-family: 'Doto', sans-serif;
+    padding: 5px;
+}
+.cards.selezione div:nth-child(3)>a>div:nth-child(4)>div {
+    background-color: #F5FBFB;
+    border: 1px solid #9DFF00;
+    color: black;
+    font-family: 'Doto', sans-serif;
+    padding: 5px;
+}
+.section.repository {
+    display: grid;
+    grid-template-columns: auto;
+    gap: 20px;
+    justify-content: left;
+}
+.section.repository div:nth-child(1)>p {
+    border-bottom: 2px solid #3A62FE;
+}
+.section.repository div:nth-child(1)>p {
+    font-family: "Doto", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: white;
+}
+.section.repository div:nth-child(3)>a, .section.contatti div:nth-child(2) button {
+    text-decoration: none;
+    font-family: 'Helvetica', sans-serif;
+    color: #FFF200;
+    background-color: transparent;
+    text-shadow:
+        0 0 2px #FFF200,
+        0 0 6px rgba(255,242,0,.65);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        text-shadow .2s ease;
+}
+.section.repository div:nth-child(3)>a:hover, .section.contatti div:nth-child(2) button:hover {
+    cursor: pointer;
+    background-color: transparent;
+    transform:scale(1.04);
+    text-shadow:
+      0 0 2px #FFF200,
+      0 0 6px #FFF200,
+      0 0 14px rgba(255,242,0,.85);
+    box-shadow:
+      0 0 2px #FFF200,
+      0 0 7px rgba(255,242,0,.95),
+      0 0 16px rgba(255,242,0,.65),
+      0 0 30px rgba(255,242,0,.30);
+    animation: github-neon-flicker 1.8s infinite;
+  }
+@keyframes github-neon-flicker{
+    0%,18%,22%,25%,53%,57%,100%{
+        opacity:1;
+    }
+
+    20%,24%{
+        opacity:.72;
+    }
+
+    55%{
+        opacity:.88;
+    }
+}
+/* ================================
+   REPOSITORY CAROUSEL
+   ================================ */
+.repositories-section {
+    width:100%;
+}
+.repo-carousel {
+    width:100%;
+    background:#fff;
+    border:0;
+    box-sizing:border-box;
+}
+/* ================================
+    VIEWPORT
+    ================================ */
+.repo-viewport {
+    width:100%;
+    overflow:hidden;
+}
+.repo-track{
+width:100%;
+}
+/* ================================
+    PAGINA
+    ================================ */
+.repo-page {
+    width:100%;
+}
+/* ================================
+    RIGA REPOSITORY
+    ================================ */
+.repo-row {
+    display:grid;
+    grid-template-columns:
+        56px
+        minmax(150px, 1.1fr)
+        minmax(90px, .65fr)
+        minmax(220px, 2fr)
+        28px;
+    align-items:center;
+    gap:18px;
+    width:100%;
+    padding:15px 18px;
+    box-sizing:border-box;
+    background:#fff;
+    border-bottom:1px solid rgba(1,33,105,.15);
+    color:#012169;
+    text-decoration:none;
+    transition:
+        background-color .18s ease,
+        color .18s ease;
+    }
+/* ================================
+    NUMERO
+    ================================ */
+.repo-index{
+    font-family:"Doto","IBM Plex Mono",monospace;
+    font-size:.95rem;
+    font-weight:900;
+    color:#0092BC;
+    -webkit-text-fill-color:#0092BC;
+    text-shadow:none;
+}
+/* ================================
+    NOME REPOSITORY
+    ================================ */
+.repo-name{
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.95rem;
+    font-weight:700;
+    color:#0092BC;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+/* ================================
+    LINGUAGGIO
+    ================================ */
+.repo-language{
+    justify-self:start;
+    display:inline-flex;
+    align-items:center;
+    padding:4px 8px;
+    font-family:"Doto", sans-serif;
+    font-size: 0.8rem;
+    font-weight:800;
+    color:#ff00c8;
+    border:1px solid #ff00c8;
+    background:transparent;
+    white-space:nowrap;
+}
+/* ================================
+    DESCRIZIONE
+    ================================ */
+.repo-description{
+    min-width:0;
+    font-family:"Doto", sans-serif;
+    font-size: 0.9rem;
+    line-height:1.45;
+    color:#56636b;
+    /*
+        Valore negativo =
+        descrizione leggermente
+        più a sinistra.
+    */
+    margin-left:-8px;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+/* ================================
+    FRECCIA DELLA RIGA
+    ================================ */
+.repo-arrow {
+    justify-self:end;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.05rem;
+    color:#56636b;
+    transition:transform .18s ease;
+}
+/* ================================
+    HOVER RIGA
+    ================================ */
+.repo-row:hover,
+.repo-row:focus-visible {
+    background:#FF7A00;
+    outline:0;
+}
+.repo-row:hover .repo-index,
+.repo-row:hover .repo-name,
+.repo-row:hover .repo-language,
+.repo-row:hover .repo-description,
+.repo-row:hover .repo-arrow,
+.repo-row:focus-visible .repo-index,
+.repo-row:focus-visible .repo-name,
+.repo-row:focus-visible .repo-language,
+.repo-row:focus-visible .repo-description,
+.repo-row:focus-visible .repo-arrow {
+    color:#fff;
+    -webkit-text-fill-color:#fff;
+}
+.repo-row:hover .repo-language,
+.repo-row:focus-visible .repo-language {
+    border-color:#fff;
+}
+.repo-row:hover .repo-arrow,
+.repo-row:focus-visible .repo-arrow {
+    transform:translateX(3px);
+}
+/* ================================
+    CONTROLLI CAROSELLO
+    ================================ */
+.repo-carousel-controls {
+    display:grid;
+    grid-template-columns:
+        44px
+        1fr
+        44px;
+    align-items:center;
+    width:100%;
+    padding:18px;
+    box-sizing:border-box;
+}
+/* ================================
+    FRECCE CAROSELLO
+    ================================ */
+.repo-nav {
+    width:40px;
+    height:40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0;
+    border:1px solid #012169;
+    background:#fff;
+    color:#012169;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:1.1rem;
+    font-weight:700;
+    cursor:pointer;
+    transition:
+        background-color .18s ease,
+        color .18s ease;
+}
+#repoPrev {
+    justify-self:start;
+}
+#repoNext {
+    justify-self:end;
+}
+.repo-nav:hover,
+.repo-nav:focus-visible {
+    background:#012169;
+    color:#fff;
+    outline:0;
+}
+.repo-nav:disabled {
+    opacity:.25;
+    cursor:default;
+}
+/* ================================
+    INDICATORI PAGINA
+    perfettamente centrati tra frecce
+    ================================ */
+.repo-pagination {
+    justify-self:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:7px;
+}
+/* rettangolino */
+.repo-dot {
+    width:22px;
+    height:5px;
+    padding:0;
+    border:0;
+    background:rgba(1,33,105,.22);
+    cursor:pointer;
+    transition:
+        background-color .18s ease,
+        transform .18s ease;
+}
+/* pagina corrente */
+.repo-dot.active {
+    background:#012169;
+}
+/* opzionale */
+.repo-dot:hover {
+    background:#012169;
+}
+/* ================================
+    COUNTER
+    conservato ma nascosto
+    ================================ */
+.repo-counter {
+    display:none;
+}
+/* ================================
+    ERRORE
+    ================================ */
+.repo-error {
+    display:none;
+    padding:16px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.8rem;
+    color:#e85d4b;
+}
+/* ================================
+    MOBILE
+    ================================ */
+@media(max-width:720px) {
+    .repo-row {
+        grid-template-columns:
+        38px
+        minmax(0,1fr)
+        auto;
+        gap:9px 12px;
+        padding:14px 12px;
+    }
+    .repo-index{
+        grid-column:1;
+        grid-row:1 / span 2;
+    }
+    .repo-name{
+        grid-column:2;
+        grid-row:1;
+    }
+    .repo-language{
+        grid-column:3;
+        grid-row:1;
+    }
+    .repo-description{
+        grid-column:2 / 4;
+        grid-row:2;
+
+        margin-left:0;
+
+        white-space:normal;
+    }
+    .repo-arrow{
+        display:none;
+    }
+    .repo-carousel-controls{
+        grid-template-columns:
+        40px
+        1fr
+        40px;
+
+        padding:15px 12px;
+    }
+}
+.section.contatti {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    justify-content: left;
+    padding: 50px;
+    gap: 50px;
+    background-color: #122169;
+    color: white;
+}
+.section.contatti div:nth-child(1)>p {
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.55;
+    color: white;
+}
+.section.contatti div:nth-child(2) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 15px;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+.form input, .form textarea {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: 100%;
+}
+.form button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: 100px;
+    cursor: pointer;
+}
+.form button:hover {
+    color: #f2f2f2;
+    background-color: #e85d4b;
+    border-radius: 5px;
+    transition: 0.2s ease;
+}
+.section.contatti div:nth-child(2) {
+    width: 80%;
+    height: auto;
+}
+.section.contatti div:nth-child(2) button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    width: auto;
+}
+.section.contatti div:nth-child(2) img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.section.contatti div:nth-child(4) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.section.contatti div:nth-child(4) i {
+    font-family: 'Doto', sans-serif;
+    font-size: 30px;
+    color: white;
+}
+.section.contatti div:nth-child(4) a {
+    text-decoration: none;
+    font-style: normal;
+    color: white;
+}
+.section.contatti div:nth-child(4) a:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.complex-audio-fullwidth{
+    width:100%;
+    min-width:0;
+    box-sizing:border-box;
+    background:#fff;
+}
+.complex-wave-console{
+    position:relative;
+    width:100%;
+    min-width:0;
+    overflow:hidden;
+    background:#fff;
+    border:0;
+    box-sizing:border-box;
+}
+.wave-console-head{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:8px 12px 6px;
+    font-family:"IBM Plex Mono",monospace;
+    font-size:.72rem;
+    font-weight:700;
+    line-height:1;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+}
+.wave-label{
+    color:#012169;
+}
+.wave-status{
+    color:#e85d4b;
+}
+.complex-wave{
+    display:block;
+    width:100%;
+    height:110px;
+    background:#fff;
+    border:0;
+    outline:0;
+    box-sizing:border-box;
+}
+  /*
+    Il canvas HTML originale viene usato
+    soltanto come riferimento strutturale.
+    Il JS crea sopra di esso il canvas
+    realmente animato.
+  */
+#complexWave{
+    visibility:hidden;
+    overflow: hidden;
+    opacity:0;
+  
+    position:absolute;
+  
+    pointer-events:none;
+}
+#zoomedSineScope {
+    display:block;
+  
+    width:100%;
+    height:110px;
+    background:#fff;
+  
+    transform: scaleX(1);
+    transform-origin: center center;
+    border:0;
+    outline:0;
+  
+    box-sizing:border-box;
+}
+@media(max-width:620px){
+    .wave-console-head{
+      padding:7px 10px 5px;
+  
+      font-size:.65rem;
+    }
+  
+    #zoomedSineScope{
+      height:90px;
+    }
+}
+footer {
+    display: grid;
+    grid-template-columns: auto auto;
+    color: #122169;
+    padding: 10px;
+    justify-content: space-between;
+}
+footer p {
+    font-family: 'Helvetica', sans-serif;
+    color: #122169;
+    font-size: 12px;
+}
+footer a {
+    text-decoration: none;
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+}

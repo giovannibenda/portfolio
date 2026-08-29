@@ -1,0 +1,60 @@
+<!-- player.html — esempio di markup per la pagina del player singolo -->
+<!-- Adatta head/css/librerie (bootstrap icons ecc.) al tuo progetto reale -->
+
+<div id="videoplayer_card" class="videoplayer_card">
+    <div class="video_player">
+        <div id="data_img" class="video_container"></div>
+        <div id="video_functions" class="video_functions">
+            <div class="time">
+                <div id="initial_video" class="initial_video">00:00</div>
+                <div id="duration_video" class="duration_video">00:00</div>
+            </div>
+            <div class="timeline">
+                <input type="range" min="1" max="100" value="0" id="timeline" class="video_timeline" onclick="setTimeline()">
+            </div>
+            <div class="buttons_player">
+                <div class="player_container">
+                    <button id="previous_track" class="previousnext_track" onclick="previousTrack()"><i class="bi bi-chevron-bar-left"></i></button>
+                    <button id="remove_seconds" class="addremove_seconds" onclick="removeSeconds()"><i class="bi bi-arrow-counterclockwise"></i></button>
+                    <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
+                    <button id="add_seconds" class="addremove_seconds" onclick="addSeconds()"><i class="bi bi-arrow-clockwise"></i></button>
+                    <button id="next_track" class="previousnext_track" onclick="nextTrack()"><i class="bi bi-chevron-bar-right"></i></button>
+                </div>
+            </div>
+            <div class="settingsContainer video_settings_container">
+                <div id="volumeContainer" class="volume_container">
+                    <div class="volume_slider">
+                        <input type="range" min="0" max="100" value="50" id="volumeSlider">
+                    </div>
+                    <i id="volumeIcon" class="bi bi-volume-up-fill volume_icon_open"></i>
+                </div>
+                <div class="speed_container video_speed_container">
+                    <div class="speed_slider">
+                        <div>Playback speed</div>
+                        <input type="range" min="0" max="5" value="2" id="speedSlider">
+                    </div>
+                    <p id="speed">1x</p>
+                </div>
+                <div class="settings_container">
+                    <div class="autoplay_box">
+                        <div>Playback settings</div>
+                        <div>
+                            <div style="border: none;">Autoplay</div>
+                            <input type="checkbox" value="on" checked="true" id="autoPlay" onclick="autoPlay()">
+                        </div>
+                    </div>
+                    <i id="autoplay_icon" class="bi bi-gear-fill"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="data_txt" class="video_card_info">
+        <h1 id="video_title"></h1>
+        <h2 id="video_description"></h2>
+        <p id="video_author"></p>
+    </div>
+</div>
+
+<!-- Ordine di caricamento importante: prima i dati (data.js), poi lo script del player -->
+<script src="data.js"></script>
+<script src="player.js"></script>
