@@ -1,6 +1,10 @@
+---
+layout: default
+title: Giovanni Benda - Video Player
+---
+{% include header-internal.html %}
 <!-- player.html — esempio di markup per la pagina del player singolo -->
 <!-- Adatta head/css/librerie (bootstrap icons ecc.) al tuo progetto reale -->
-
 <div id="videoplayer_card" class="videoplayer_card">
     <div class="video_player">
         <div id="data_img" class="video_container"></div>
@@ -54,7 +58,13 @@
         <p id="video_author"></p>
     </div>
 </div>
-
+{% include footer.html %}
 <!-- Ordine di caricamento importante: prima i dati (data.js), poi lo script del player -->
-<script src="data.js"></script>
-<script src="player.js"></script>
+<script src="assets/js/data.js"></script>
+<script src="assets/js/player.js"></script>
+<script>
+    const category = localStorage.getItem('selectedCategory' || 'progetti');
+    const backLink = document.querySelector('.back-link');
+    backLink.setAttribute('href', `${category}.html`);
+    backLink.textContent = `← TORNA A ${category.replace('-', ' ').toUpperCase()}`;
+</script>

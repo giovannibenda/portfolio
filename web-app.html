@@ -1,13 +1,14 @@
 ---
 layout: default
-title: Giovanni Benda - Portfolio
+title: Giovanni Benda - Web Development
+backlink: progetti
 ---
-{% include header.html %}
+{% include header-internal.html %}
 <div id="repository" class="section repository">
     <div>
         <div class="category">LAVORI / WEB DEVELOPMENT</div>
         <h2>WEB DEVELOPMENT</h2>
-        <p>Siti, applicazioni web e progetti frontend/backend. Le anteprime vengono caricate progressivamente dal file JSON mentre scorri.</p>
+        <p>Siti, applicazioni web e progetti frontend/backend.</p>
     </div>
     <div id="video_cards" class="video_cards">
         <!-- Video cards will be dynamically generated here -->
@@ -15,4 +16,7 @@ title: Giovanni Benda - Portfolio
 </div>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/list.js"></script>
+<script>
+    localStorage.setItem('selectedCategory', 'web-app');
+</script>
 {% include footer.html %}

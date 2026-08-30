@@ -1,6 +1,7 @@
 header {
     display:grid;
     grid-template-columns: auto auto;
+    align-items: center;
     border-bottom: 2px solid #3A62FE;
     z-index: 1000;
     position: sticky;
@@ -10,7 +11,7 @@ header {
     font-size:clamp(1.05rem,1.45vw,1.30rem);
     font-weight:700;
     letter-spacing:.04em;
-    
+    text-decoration: none;
     color:#012169;
     -webkit-text-fill-color:#012169;
     
@@ -45,6 +46,20 @@ header {
     background-color: #122169;
     border-radius: 5px;
     transition: 0.2s ease;
+}
+.back-link {
+    text-decoration: none;
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    padding: 10px;
+    transition: 0.2s ease;
+}
+.back-link-li {
+    list-style-type: none;
+    text-align: right;
+}
+.back-link-ul {
+    justify-content: right;
 }
 .binary-signal-strip {
     width:100%;
