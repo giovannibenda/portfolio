@@ -1,8 +1,8 @@
 // player.js — pagina del player singolo (player.html)
 // Richiede data.js incluso PRIMA di questo file (fornisce trackList e loadTrackList)
 
-let trackPath;
 let trackIndex;
+let trackPath;
 let video = document.createElement("video");
 let playpause = document.getElementById("playpause_video");
 let playIcon = document.createElement("i");
@@ -36,9 +36,7 @@ function createVideo() {
 }
 
 // Carica un nuovo video nel player (usata da previousTrack/nextTrack e all'avvio)
-function videoPlayer(index, prime, autostart, volumeValue, speedValue, autoplayValue) {
-    trackIndex = index;
-    trackPath = trackList[trackIndex].path;
+function videoPlayer(autostart, volumeValue, speedValue, autoplayValue) {
 
     video.setAttribute("src", trackPath);
     videoInfo();
@@ -51,9 +49,6 @@ function videoPlayer(index, prime, autostart, volumeValue, speedValue, autoplayV
 
     timeline.value = 0;
     initial_video.innerHTML = "00:00";
-
-    // Ricorda l'ultimo video visto (utile se l'utente ricarica player.html)
-    localStorage.setItem("videoFile", trackIndex);
 
     if (autostart == 1) {
         playpauseVideo();
@@ -73,34 +68,12 @@ function autoplayPreference() {
     autoplay.checked = (autoplay_value === "true");
 }
 
-function previousTrack() {
-    if (trackIndex > 0 && trackIndex < trackList.length) {
-        stopVideo();
-        let newIndex = Number(trackIndex) - 1;
-        let volumeSliderValue = volumeSlider.value;
-        let speedSliderValue = speedSlider.value;
-        let autoplayValue = autoplay.checked;
-        videoPlayer(newIndex, primeUse, 1, volumeSliderValue, speedSliderValue, autoplayValue);
-    }
-}
-
-function nextTrack() {
-    if (trackIndex < trackList.length - 1) {
-        stopVideo();
-        let newIndex = Number(trackIndex) + 1;
-        let volumeSliderValue = volumeSlider.value;
-        let speedSliderValue = speedSlider.value;
-        let autoplayValue = autoplay.checked;
-        videoPlayer(newIndex, primeUse, 1, volumeSliderValue, speedSliderValue, autoplayValue);
-    }
-}
-
 function videoInfo() {
     document.getElementById("videoplayer_card").style.backgroundImage =
         'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))';
-    videoTitle.innerHTML = trackList[trackIndex].title;
-    videoDescription.innerHTML = trackList[trackIndex].description;
-    videoAuthor.innerHTML = trackList[trackIndex].author;
+    videoTitle.innerHTML = track.title;
+    videoDescription.innerHTML = track.description;
+    videoAuthor.innerHTML = track.author;
 }
 
 function addSeconds() {
@@ -245,8 +218,9 @@ async function initPlayer() {
     const params = new URLSearchParams(window.location.search);
     const indexParam = params.get("index");
     // Se manca il parametro in URL, riprende l'ultimo video visto (se salvato)
-    trackIndex = indexParam !== null ? Number(indexParam) : Number(localStorage.getItem("videoFile")) || 0;
+    trackIndex = indexParam !== null ? Number(indexParam) : Number(localStorage.getItem("trackIndex")) || 0;
     trackPath = trackList[trackIndex].path;
+    track = trackList[trackIndex]
 
     createVideo();
     videoInfo();
@@ -255,7 +229,7 @@ async function initPlayer() {
     autoplayPreference();
 
     playpause.appendChild(playIcon);
-    localStorage.setItem("videoFile", trackIndex);
+    localStorage.setItem("trackIndex", trackIndex);
 }
 
 window.addEventListener("DOMContentLoaded", initPlayer);

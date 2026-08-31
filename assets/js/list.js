@@ -1,23 +1,20 @@
-// list.js — pagina con le anteprime dei video (index.html)
-// Richiede data.js incluso PRIMA di questo file (fornisce trackList e loadTrackList)
-
-function createVideoCard(i) {
-    let track = trackList[i];
+function createVideoCard(track) {
 
     let video_cards = document.getElementById("video_cards");
     let card = document.createElement("div");
     card.className = "video_card";
 
-    // Al click, naviga alla pagina del player passando l'indice del video
-    card.addEventListener("click", () => goToPlayer(i));
+    card.addEventListener("click", () => openPlayer(track));
 
     card.innerHTML = `
         <div class="video_card_preview">
-            <img src="${track.thumbnail ? track.thumbnail : 'assets/default-thumbnail.jpg'}"
-                 alt="${track.title}" class="video_thumbnail">
+            <div class="video_card_overlay">
+                <img src="${track.image ? track.image : 'assets/default-thumbnail.jpg'}" alt="${track.title}" class="video_thumbnail">
+                <div class="play_button"></div> 
+            </div>
             <div class="video_card_info">
-                <h3 class="video_title">${track.title}</h3>
-                <p class="video_author">${track.author}</p>
+                <div class="video_title">${track.title}</div>
+                <div class="video_author">${track.author}</div>
             </div>
         </div>
     `;
@@ -25,13 +22,23 @@ function createVideoCard(i) {
     video_cards.appendChild(card);
 }
 
-function goToPlayer(i) {
-    // Passiamo solo l'indice nella URL: la pagina player leggerà trackList[index]
-    window.location.href = `player.html?index=${i}`;
+function renderVideoCards() {
+    trackList.forEach((track) => {
+        if (track.genre == localStorage.getItem("selectedCategory")) {
+            createVideoCard(track);
+        }
+    })
 }
 
-function renderVideoCards() {
-    trackList.forEach((track, i) => createVideoCard(i));
+function openPlayer(track) {
+    localStorage.setItem("trackIndex", track.id);
+    document.getElementById("popup_video_overlay").classList.add("active");
+}
+
+function closePlayer() {
+    localStorage.setItem("trackIndex", '');
+    stopVideo();
+    document.getElementById("popup_video_overlay").classList.remove("active");
 }
 
 async function main() {

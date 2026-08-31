@@ -490,6 +490,109 @@ header, .binary-signal-strip, .hero, .section {
     font-family: 'Doto', sans-serif;
     padding: 5px;
 }
+.video_cards {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 20px;
+    justify-content: space-around;
+}
+.video_card {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    border: 5px solid transparent;
+    border-radius: 5px;
+    transition: transform .25s ease;
+    transform-origin: center;
+    cursor: pointer;
+}
+.video_card_overlay {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.video_thumbnail {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.play_button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Centra perfettamente l'elemento */
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.8); /* Cerchio bianco opaco al 80% */
+    border-radius: 50%; /* Lo rende un cerchio perfetto */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease; /* Effetto fluido quando ci passi sopra con il mouse */
+}
+.play_button::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    /* Disegna il triangolo usando i bordi CSS */
+    border-width: 10px 0 10px 18px; 
+    border-color: transparent transparent transparent #122169; /* Colore blu come il tuo testo */
+    margin-left: 4px; /* Corregge l'ottica del triangolo per centrarlo nel cerchio */
+}
+.video_card:hover .play_button {
+    transform: translate(-50%, -50%) scale(1.1); /* Si ingrandisce leggermente */
+    background-color: #ffffff; /* Diventa bianco pieno */
+}
+.video_card_info {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    gap: 10px;
+    justify-content: left;
+}
+.video_title {
+    font-family: 'Helvetica', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 10px;
+}
+.video_author {
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    color: white;
+}
+.popup_video_overlay {
+    display: none; /* Nasconde il popup di base */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7); /* Sfondo semi-trasparente scuro */
+    z-index: 9999; /* Lo porta sopra a tutti gli altri elementi */
+    justify-content: center;
+    align-items: center;
+}
+.popup_video_overlay.active {
+    display: flex;
+}
+.close-popup-btn {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
 .section.repository {
     display: grid;
     grid-template-columns: auto;

@@ -1,20 +1,38 @@
 [
     {
       "id": 0,
-      "image": "image/live_electronics.jpg",
-      "title": "Live electronics",
+      "image": "assets/images/video_cover.jpg",
+      "title": "Web App 1",
       "author": "Giovanni Benda",
       "description": "Progetto eseguito durante il concerto della laptop orchestra",
-      "path": "audiovisual/live_electronics.mp4",
-      "genre": "experimental"
+      "path": "assets/video/live_electronics.mp4",
+      "genre": "web-development"
     },
     {
       "id": 1,
-      "image": "image/live_electronics.jpg",
-      "title": "Live electronics",
+      "image": "assets/images/video_cover.jpg",
+      "title": "Web App 2",
       "author": "Giovanni Benda",
       "description": "Progetto eseguito durante il concerto della laptop orchestra",
-      "path": "audiovisual/live_electronics.mp4",
-      "genre": "experimental"
+      "path": "assets/video/live_electronics.mp4",
+      "genre": "web-development"
+    },
+    {
+      "id": 2,
+      "image": "assets/images/video_cover.jpg",
+      "title": "Computer Music",
+      "author": "Giovanni Benda",
+      "description": "Progetto eseguito durante il concerto della laptop orchestra",
+      "path": "assets/video/live_electronics.mp4",
+      "genre": "computer-music"
+    },
+    {
+      "id": 3,
+      "image": "assets/images/video_cover.jpg",
+      "title": "Interactive Media",
+      "author": "Giovanni Benda",
+      "description": "Progetto eseguito durante il concerto della laptop orchestra",
+      "path": "assets/video/live_electronics.mp4",
+      "genre": "interactive-media"
     }
 ]
