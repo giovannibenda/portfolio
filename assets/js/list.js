@@ -32,13 +32,14 @@ function renderVideoCards() {
 
 function openPlayer(track) {
     localStorage.setItem("trackIndex", track.id);
+    createVideo();
     document.getElementById("popup_video_overlay").classList.add("active");
 }
 
 function closePlayer() {
-    localStorage.setItem("trackIndex", '');
     stopVideo();
     document.getElementById("popup_video_overlay").classList.remove("active");
+    localStorage.removeItem('trackIndex');
 }
 
 async function main() {

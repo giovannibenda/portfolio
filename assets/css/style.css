@@ -575,7 +575,7 @@ header, .binary-signal-strip, .hero, .section {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.7); /* Sfondo semi-trasparente scuro */
+    background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente scuro */
     z-index: 9999; /* Lo porta sopra a tutti gli altri elementi */
     justify-content: center;
     align-items: center;
@@ -583,15 +583,132 @@ header, .binary-signal-strip, .hero, .section {
 .popup_video_overlay.active {
     display: flex;
 }
-.close-popup-btn {
+.video_player_card {
     position: absolute;
     top: 20px;
-    right: 30px;
+    display: grid;
+    grid-template-columns: auto;
+    background-color: white;
+    justify-items: center;
+}
+.video_player_card input, button {
+    font-family: 'Doto', sans-serif;
+    color: #122169;
+    background-color: #f2f2f2;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.video_player {
+    width: 100%;
+    height: auto;
+    border: none;
+}
+#video_container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+}
+.close-popup-btn {
+    position: fixed;
+    top: 0px;
+    right: 50px;
     font-size: 40px;
     color: white;
     background: none;
     border: none;
     cursor: pointer;
+    z-index: 1;
+}
+.video_functions {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 100%;
+    justify-items: center;
+    accent-color: #FF7A00;
+}
+.timeline {
+    display: grid;
+    grid-template-columns: auto;
+    position: relative;
+    top: -70px;
+    width: 100%;
+    height: auto;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.2s ease 5s;
+    cursor: pointer;
+}
+.timeline:hover {
+    opacity: 1;
+    transition-delay: 0s;
+}
+.timeline>div:nth-child(1) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+.timeline>div:nth-child(1) div {
+    font-family: "Doto", sans-serif;
+    color: white;
+    font-size: 14px;
+    background-color: #1a1a1a;
+    padding: 5px;
+    border-radius: 5px;
+}
+.timeline>div:nth-child(2) {
+    display: flex;
+    width: 100%;
+}
+.timeline>div:nth-child(2) input {
+    width: 100%;
+    text-align: center;
+    cursor: pointer;
+}
+.buttons_player {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    gap: 10px;
+    width: 90%;
+}
+.buttons_player button {
+    background-color: transparent;
+    color: white;
+    font-size: 24px;
+}
+.buttons_player button:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+.video_settings {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    color: white;
+    font-family: 'Helvetica', monospace;
+    font-size: 20px;
+}
+.video_settings i:hover {
+    background-color: transparent;
+    color: #e85d4b;
+    cursor: pointer;
+}
+.volume_container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.volume_container>div:nth-child(1) {
+    font-family: "Doto", sans-serif;
+    color: white;
+    text-align: left;
 }
 .section.repository {
     display: grid;

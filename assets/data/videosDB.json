@@ -4,7 +4,7 @@
       "image": "assets/images/video_cover.jpg",
       "title": "Web App 1",
       "author": "Giovanni Benda",
-      "description": "Progetto eseguito durante il concerto della laptop orchestra",
+      "description": "Progetto 1 eseguito durante il concerto della laptop orchestra",
       "path": "assets/video/live_electronics.mp4",
       "genre": "web-development"
     },
@@ -13,7 +13,7 @@
       "image": "assets/images/video_cover.jpg",
       "title": "Web App 2",
       "author": "Giovanni Benda",
-      "description": "Progetto eseguito durante il concerto della laptop orchestra",
+      "description": "Progetto 2 eseguito durante il concerto della laptop orchestra",
       "path": "assets/video/live_electronics.mp4",
       "genre": "web-development"
     },
