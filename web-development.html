@@ -28,27 +28,21 @@ backlink: progetti
                     <div class="time_slider">
                         <input type="range" min="1" max="100" value="0" id="timeline" class="video_timeline" onclick="setTimeline()">
                     </div>
+                    <div>
+                        <button id="fullscreen_button" class="" onclick="toggleFullscreen()">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                        </button>
+                    </div>
                 </div>
                 <div class="buttons_player">
-                    <button id="previous_track" class="previousnext_track" onclick="previousTrack()"><i class="bi bi-chevron-bar-left"></i></button>
-                    <button id="remove_seconds" class="addremove_seconds" onclick="removeSeconds()"><i class="bi bi-arrow-counterclockwise"></i></button>
-                    <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
-                    <button id="add_seconds" class="addremove_seconds" onclick="addSeconds()"><i class="bi bi-arrow-clockwise"></i></button>
-                    <button id="next_track" class="previousnext_track" onclick="nextTrack()"><i class="bi bi-chevron-bar-right"></i></button>
-                </div>
-                <div class="video_settings">
+                    <div class="">
+                        <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
+                    </div>
                     <div id="volume_container" class="volume_container">
                         <i id="volume_icon" class="bi bi-volume-up-fill"></i>
                         <div class="volume_slider">
                             <input type="range" min="0" max="100" value="50" id="volumeSlider">
                         </div>
-                    </div>
-                    <div class="speed_container">
-                        <div class="speed_slider">
-                            <div>Playback speed</div>
-                            <input type="range" min="0" max="5" value="2" id="speedSlider">
-                        </div>
-                        <p id="speed">1x</p>
                     </div>
                     <div class="autoplay_container">
                         <div class="autoplay_box">
@@ -60,13 +54,20 @@ backlink: progetti
                         </div>
                         <i id="autoplay_icon" class="bi bi-gear-fill"></i>
                     </div>
+                    <div class="speed_container">
+                        <div class="speed_slider">
+                            <div>Playback speed</div>
+                            <input type="range" min="0" max="5" value="2" id="speedSlider">
+                        </div>
+                        <p id="speed">1x</p>
+                    </div>
                 </div>
             </div>
         </div>
         <div id="video_card_info" class="video_card_info">
-            <h1 id="video_title"></h1>
-            <h2 id="video_description"></h2>
-            <p id="video_author"></p>
+            <div id="video_title"></div>
+            <div id="video_author"></div>
+            <div id="video_description"></div>
         </div>
     </div>
 </div>

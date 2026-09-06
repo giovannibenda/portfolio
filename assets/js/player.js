@@ -19,6 +19,7 @@ let videoTitle = document.getElementById("video_title");
 let videoDescription = document.getElementById("video_description");
 let videoAuthor = document.getElementById("video_author");
 let autoplay = document.getElementById("autoPlay");
+let fullscreenButton = document.getElementById("fullscreen_button");
 let refreshTime;
 let refreshSlider;
 let minutes;
@@ -80,7 +81,7 @@ function videoInfo() {
     document.getElementById("video_player_card").style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))';
     videoTitle.innerHTML = track.title;
     videoDescription.innerHTML = track.description;
-    videoAuthor.innerHTML = track.author;
+    videoAuthor.innerHTML = "di " + track.author;
 }
 
 function addSeconds() {
@@ -212,6 +213,26 @@ function stopVideo() {
     timeline.value = 0;
     clearInterval(refreshTime);
     clearInterval(refreshSlider);
+}
+
+function toggleFullscreen() {
+    if (video.classList.contains("fullscreen")) {
+        video.classList.remove("fullscreen");
+        fullscreenButton.removeChild(fullscreenButton.firstElementChild);
+        fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
+
+    } else {
+        video.classList.add("fullscreen");
+        fullscreenButton.removeChild(fullscreenButton.firstElementChild);
+        fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-fullscreen-exit");
+    }
+    window.addEventListener("keydown", function(event) {
+        if (event.key === "Escape" && video.classList.contains("fullscreen")) {
+            video.classList.remove("fullscreen");
+            fullscreenButton.removeChild(fullscreenButton.firstElementChild);
+            fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
+        }
+    })
 }
 
 // Aggiornamento immediato quando l'utente muove gli slider (oltre al polling durante la riproduzione)

@@ -3,7 +3,7 @@ header {
     grid-template-columns: auto auto;
     align-items: center;
     border-bottom: 2px solid #3A62FE;
-    z-index: 1000;
+    z-index: 1;
     position: sticky;
 }
 .logo {
@@ -550,24 +550,6 @@ header, .binary-signal-strip, .hero, .section {
     transform: translate(-50%, -50%) scale(1.1); /* Si ingrandisce leggermente */
     background-color: #ffffff; /* Diventa bianco pieno */
 }
-.video_card_info {
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: auto auto;
-    gap: 10px;
-    justify-content: left;
-}
-.video_title {
-    font-family: 'Helvetica', sans-serif;
-    font-size: 1.5rem;
-    color: white;
-    margin-top: 10px;
-}
-.video_author {
-    font-family: 'Doto', sans-serif;
-    font-size: 1rem;
-    color: white;
-}
 .popup_video_overlay {
     display: none; /* Nasconde il popup di base */
     position: fixed;
@@ -576,25 +558,35 @@ header, .binary-signal-strip, .hero, .section {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente scuro */
-    z-index: 9999; /* Lo porta sopra a tutti gli altri elementi */
+    z-index: 2; /* Lo porta sopra a tutti gli altri elementi */
     justify-content: center;
     align-items: center;
+}
+.video_card_title {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    color: white;
+    margin-top: 10px;
+}
+.video_card_author {
+    font-family: 'Doto', sans-serif;
+    font-size: 1rem;
+    color: white;
+    margin-top: 5px;
 }
 .popup_video_overlay.active {
     display: flex;
 }
 .video_player_card {
     position: absolute;
+    width: 70%;
     top: 20px;
     display: grid;
     grid-template-columns: auto;
+    color: #122169;
     background-color: white;
     justify-items: center;
-}
-.video_player_card input, button {
     font-family: 'Doto', sans-serif;
-    color: #122169;
-    background-color: #f2f2f2;
     border: none;
     padding: 10px;
     border-radius: 5px;
@@ -605,19 +597,31 @@ header, .binary-signal-strip, .hero, .section {
     width: 100%;
     height: auto;
     border: none;
+    text-align: center;
+}
+.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    object-fit: cover;
 }
 #video_container {
     position: relative;
+    display: block;
     width: 100%;
     height: auto;
-    z-index: 0;
+    object-fit: cover;
+    z-index: 2;
 }
 .close-popup-btn {
     position: fixed;
     top: 0px;
-    right: 50px;
+    right: 10px;
     font-size: 40px;
     color: white;
+    font-family: 'Doto', sans-serif;
     background: none;
     border: none;
     cursor: pointer;
@@ -628,7 +632,6 @@ header, .binary-signal-strip, .hero, .section {
     width: 100%;
     display: grid;
     grid-template-columns: 100%;
-    justify-items: center;
     accent-color: #FF7A00;
 }
 .timeline {
@@ -637,8 +640,8 @@ header, .binary-signal-strip, .hero, .section {
     position: relative;
     top: -70px;
     width: 100%;
-    height: auto;
-    z-index: 1;
+    height: 0px;;
+    z-index: 3;
     opacity: 0;
     transition: opacity 0.2s ease 5s;
     cursor: pointer;
@@ -670,15 +673,32 @@ header, .binary-signal-strip, .hero, .section {
     text-align: center;
     cursor: pointer;
 }
+#fullscreen_button {
+    position: relative;
+    bottom: 10px;
+    right: 10px;
+    font-size: 14px;
+    text-align: right;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+#fullscreen_button:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
+}
 .buttons_player {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
     gap: 10px;
-    width: 90%;
+    width: 100%;
+    padding: 10px;
+    color: white;
+
 }
 .buttons_player button {
     background-color: transparent;
-    color: white;
     font-size: 24px;
 }
 .buttons_player button:hover {
@@ -686,29 +706,53 @@ header, .binary-signal-strip, .hero, .section {
     transition: 0.2s ease;
     cursor: pointer;
 }
-.video_settings {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 10px;
-    color: white;
-    font-family: 'Helvetica', monospace;
-    font-size: 20px;
+.buttons_player i {
+    color: white
 }
-.video_settings i:hover {
-    background-color: transparent;
-    color: #e85d4b;
+.buttons_player i:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
     cursor: pointer;
 }
 .volume_container {
     display: flex;
     align-items: center;
+    justify-content: left;
     gap: 10px;
     cursor: pointer;
 }
-.volume_container>div:nth-child(1) {
-    font-family: "Doto", sans-serif;
-    color: white;
+.speed_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+}
+.autoplay_container {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    gap: 10px;
+    cursor: pointer;
+}
+.video_card_info {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto auto;
+    gap: 10px;
     text-align: left;
+    color: white;
+    font-family: 'Doto', sans-serif;
+}
+#video_title {
+    font-size: 1.8rem;
+    margin-top: 10px;
+}
+#video_author {
+    font-size: 0.9rem;
+}
+#video_description {
+    font-size: 1rem;
 }
 .section.repository {
     display: grid;

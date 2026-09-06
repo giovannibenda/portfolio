@@ -13,8 +13,8 @@ function createVideoCard(track) {
                 <div class="play_button"></div> 
             </div>
             <div class="video_card_info">
-                <div class="video_title">${track.title}</div>
-                <div class="video_author">${track.author}</div>
+                <div class="video_card_title">${track.title}</div>
+                <div class="video_card_author">di ${track.author}</div>
             </div>
         </div>
     `;
