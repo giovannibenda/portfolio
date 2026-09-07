@@ -6,6 +6,7 @@ let trackPath;
 let track;
 let video;
 let videoPlayerCard = document.getElementById("video_player_card");
+let videoPlayerFunctions = document.getElementById("video_functions");
 let playpause = document.getElementById("playpause_video");
 let playIcon = document.createElement("i");
 playIcon.setAttribute("class", "bi bi-caret-right-fill");
@@ -220,12 +221,14 @@ function toggleFullscreen() {
     if (videoPlayerCard.classList.contains("fullscreen")) {
         videoPlayerCard.classList.remove("fullscreen");
         video.classList.remove("fullscreen");
+        videoPlayerFunctions.classList.remove("active");
         fullscreenButton.removeChild(fullscreenButton.firstElementChild);
         fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
 
     } else {
         videoPlayerCard.classList.add("fullscreen");
         video.classList.add("fullscreen");
+        videoPlayerFunctions.classList.add("active");
         fullscreenButton.removeChild(fullscreenButton.firstElementChild);
         fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-fullscreen-exit");
     }
@@ -233,6 +236,7 @@ function toggleFullscreen() {
         if (event.key === "Escape" && videoPlayerCard.classList.contains("fullscreen")) {
             videoPlayerCard.classList.remove("fullscreen");
             video.classList.remove("fullscreen");
+            videoPlayerFunctions.classList.remove("active");
             fullscreenButton.removeChild(fullscreenButton.firstElementChild);
             fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
         }
