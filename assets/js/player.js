@@ -5,6 +5,7 @@ let trackIndex;
 let trackPath;
 let track;
 let video;
+let videoPlayerCard = document.getElementById("video_player_card");
 let playpause = document.getElementById("playpause_video");
 let playIcon = document.createElement("i");
 playIcon.setAttribute("class", "bi bi-caret-right-fill");
@@ -216,18 +217,21 @@ function stopVideo() {
 }
 
 function toggleFullscreen() {
-    if (video.classList.contains("fullscreen")) {
+    if (videoPlayerCard.classList.contains("fullscreen")) {
+        videoPlayerCard.classList.remove("fullscreen");
         video.classList.remove("fullscreen");
         fullscreenButton.removeChild(fullscreenButton.firstElementChild);
         fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
 
     } else {
+        videoPlayerCard.classList.add("fullscreen");
         video.classList.add("fullscreen");
         fullscreenButton.removeChild(fullscreenButton.firstElementChild);
         fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-fullscreen-exit");
     }
     window.addEventListener("keydown", function(event) {
-        if (event.key === "Escape" && video.classList.contains("fullscreen")) {
+        if (event.key === "Escape" && videoPlayerCard.classList.contains("fullscreen")) {
+            videoPlayerCard.classList.remove("fullscreen");
             video.classList.remove("fullscreen");
             fullscreenButton.removeChild(fullscreenButton.firstElementChild);
             fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");

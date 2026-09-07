@@ -579,40 +579,38 @@ header, .binary-signal-strip, .hero, .section {
 }
 .video_player_card {
     position: absolute;
-    width: 70%;
+    width: auto;
     top: 20px;
     display: grid;
     grid-template-columns: auto;
     color: #122169;
     background-color: white;
-    justify-items: center;
+    justify-items: left;
     font-family: 'Doto', sans-serif;
     border: none;
-    padding: 10px;
     border-radius: 5px;
+    padding-bottom: 20px;
     transition: 0.2s ease;
-    cursor: pointer;
 }
 .video_player {
-    width: 100%;
+    width: auto;
     height: auto;
     border: none;
     text-align: center;
 }
 .fullscreen {
-    position: fixed;
+    position: relative;
     top: 0;
     left: 0;
-    width: 100vh;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
+    z-index: 3;
 }
 #video_container {
     position: relative;
-    display: block;
     width: 100%;
     height: auto;
-    object-fit: cover;
     z-index: 2;
 }
 .close-popup-btn {
@@ -629,49 +627,49 @@ header, .binary-signal-strip, .hero, .section {
 }
 .video_functions {
     position: relative;
-    width: 100%;
-    display: grid;
-    grid-template-columns: 100%;
-    accent-color: #FF7A00;
-}
-.timeline {
     display: grid;
     grid-template-columns: auto;
-    position: relative;
-    top: -70px;
+    grid-template-rows: auto auto;
+    top: -100px;
     width: 100%;
     height: 0px;;
     z-index: 3;
     opacity: 0;
     transition: opacity 0.2s ease 5s;
-    cursor: pointer;
+    accent-color: #FF7A00;
+    color: white;
 }
-.timeline:hover {
+.video_functions:hover {
     opacity: 1;
     transition-delay: 0s;
 }
-.timeline>div:nth-child(1) {
-    display: flex;
-    justify-content: space-between;
+.video_timeline {
+    position: relative;
+    bottom: 10px;
     width: 100%;
-    align-items: center;
+    height: 5px;
+    background-color: #FF7A00;
 }
-.timeline>div:nth-child(1) div {
-    font-family: "Doto", sans-serif;
-    color: white;
+.video_settings {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+    gap: 10px;
+    bottom: 10px;
     font-size: 14px;
+    text-align: left;
+    color: white;
+    background-color: transparent;
+    border: none;
+    align-items: bottom;
+}
+.video_duration {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
     background-color: #1a1a1a;
-    padding: 5px;
     border-radius: 5px;
-}
-.timeline>div:nth-child(2) {
-    display: flex;
-    width: 100%;
-}
-.timeline>div:nth-child(2) input {
-    width: 100%;
-    text-align: center;
-    cursor: pointer;
 }
 #fullscreen_button {
     position: relative;

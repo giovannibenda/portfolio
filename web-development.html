@@ -21,28 +21,17 @@ backlink: progetti
             <div id="video_container" class="video_container"></div>
             <div id="video_functions" class="video_functions">
                 <div class="timeline">
-                    <div>
-                        <div id="initial_video" class="initial_video">00:00</div>
-                        <div id="duration_video" class="duration_video">00:00</div>
-                    </div>
-                    <div class="time_slider">
-                        <input type="range" min="1" max="100" value="0" id="timeline" class="video_timeline" onclick="setTimeline()">
-                    </div>
-                    <div>
-                        <button id="fullscreen_button" class="" onclick="toggleFullscreen()">
-                            <i class="bi bi-arrows-fullscreen"></i>
-                        </button>
-                    </div>
+                    <input type="range" min="1" max="100" value="0" id="timeline" class="video_timeline" onclick="setTimeline()">
                 </div>
-                <div class="buttons_player">
-                    <div class="">
-                        <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
+                <div class="video_settings">
+                    <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
+                    <div class="video_duration">
+                        <div id="initial_video" class="initial_video">00:00 /</div>
+                        <div id="duration_video" class="duration_video">00:00</div>
                     </div>
                     <div id="volume_container" class="volume_container">
                         <i id="volume_icon" class="bi bi-volume-up-fill"></i>
-                        <div class="volume_slider">
-                            <input type="range" min="0" max="100" value="50" id="volumeSlider">
-                        </div>
+                        <input type="range" min="0" max="100" value="50" id="volumeSlider">
                     </div>
                     <div class="autoplay_container">
                         <div class="autoplay_box">
@@ -61,6 +50,9 @@ backlink: progetti
                         </div>
                         <p id="speed">1x</p>
                     </div>
+                    <button id="fullscreen_button" class="" onclick="toggleFullscreen()">
+                        <i class="bi bi-arrows-fullscreen"></i>
+                    </button>
                 </div>
             </div>
         </div>
