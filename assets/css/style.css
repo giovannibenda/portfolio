@@ -683,7 +683,7 @@ header, .binary-signal-strip, .hero, .section {
 .video_settings {
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: 5% 15% auto 5% 5%;
     grid-template-rows: 50px;
     gap: 10px;
     font-size: 14px;
@@ -691,18 +691,7 @@ header, .binary-signal-strip, .hero, .section {
     color: white;
     background-color: transparent;
     border: none;
-    align-items: bottom;
-}
-.video_duration {
-    display: grid;
-    height: 30px;
-    grid-template-columns: auto auto;
-    gap: 10px;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    justify-content: center;
     align-items: center;
-    object-fit: contain;
 }
 .button_player {
     font-size: 20px;
@@ -715,6 +704,17 @@ header, .binary-signal-strip, .hero, .section {
     color: #FF7A00;
     transition: 0.2s ease;
 }
+.video_duration {
+    display: grid;
+    height: 30px;
+    grid-template-columns: auto auto;
+    gap: 10px;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    object-fit: contain;
+}
 .volume_container {
     display: flex;
     align-items: center;
@@ -722,10 +722,24 @@ header, .binary-signal-strip, .hero, .section {
     gap: 10px;
     cursor: pointer;
 }
+#volumeSlider {
+    display: none;
+    transition: 0.2s ease;
+}
+.volumeSlider {
+    display: block;
+    opacity: 0;
+    transition: 0.2s ease;
+}
+.volumeSlider.active {
+    opacity: 1;
+}
 .settings_button {
     font-size: 20px;
+    height: 30px;
     cursor: pointer;
     color: white;
+    font-family: 'Doto', sans-serif;
     background-color: transparent;
     border: none;
     text-align: right;
@@ -741,6 +755,7 @@ header, .binary-signal-strip, .hero, .section {
 .autoplay_speed_container {
     position: relative;
     bottom: 160px;
+    padding-right: 5px;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
@@ -756,7 +771,6 @@ header, .binary-signal-strip, .hero, .section {
 }
 .speed_container {
     display: flex;
-    justify-content: center;
     gap: 10px;
     cursor: pointer;
 }

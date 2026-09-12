@@ -15,6 +15,7 @@ pauseIcon.setAttribute("class", "bi bi-pause");
 let initial_video = document.getElementById("initial_video");
 let duration_video = document.getElementById("duration_video");
 let timeline = document.getElementById("timeline");
+let volumeContainer = document.getElementById("volume_container");
 let volumeIcon = document.getElementById("volume_icon");
 let volumeSlider = document.getElementById("volumeSlider");
 let speedSlider = document.getElementById("speedSlider");
@@ -256,6 +257,12 @@ volumeIcon.addEventListener("click", () => {
         volumeSlider.value = 0;
     }
     setVolume();
+})
+volumeIcon.addEventListener("mouseover", () => {
+    volumeSlider.classList.add("active");
+})
+volumeContainer.addEventListener("mouseout", () => {
+    volumeSlider.classList.remove("active");
 })
 settingsIcon.addEventListener("click", () => {
     autoplayspeedContainer.classList.toggle("active");
