@@ -639,7 +639,7 @@ header, .binary-signal-strip, .hero, .section {
     grid-template-rows: auto auto;
     top: -70px;
     width: 100%;
-    height: 0px;;
+    height: 0;
     z-index: 3;
     opacity: 0;
     transition: opacity 0.2s ease 5s;
@@ -664,7 +664,8 @@ header, .binary-signal-strip, .hero, .section {
     cursor: pointer;
     color: white;
     background-color: transparent;
-    border: none;
+    border-radius: 10px;
+    padding: 5px;
     cursor: pointer;
 }
 .video_functions i:hover {
@@ -675,16 +676,15 @@ header, .binary-signal-strip, .hero, .section {
     transition: 0.2s ease;
 }
 .video_timeline {
-    position: relative;
     width: 98%;
     height: 5px;
     background-color: #FF7A00;
 }
 .video_settings {
-    position: relative;
     width: 100%;
     display: grid;
-    grid-template-columns: auto auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: 50px;
     gap: 10px;
     font-size: 14px;
     text-align: left;
@@ -695,7 +695,7 @@ header, .binary-signal-strip, .hero, .section {
 }
 .video_duration {
     display: grid;
-    height: 40px;
+    height: 30px;
     grid-template-columns: auto auto;
     gap: 10px;
     background-color: #1a1a1a;
@@ -703,26 +703,6 @@ header, .binary-signal-strip, .hero, .section {
     justify-content: center;
     align-items: center;
     object-fit: contain;
-}
-#fullscreen_button {
-    position: relative;
-    bottom: 10px;
-    right: 10px;
-    font-size: 14px;
-    text-align: right;
-    cursor: pointer;
-    color: white;
-    background-color: transparent;
-    border: none;
-}
-#fullscreen_button:hover {
-    color: #FF7A00;
-    transition: 0.2s ease;
-    background-color: #1a1a1a;
-    border-radius: 10px;
-}
-#fullscreen_button:focus {
-    outline: none;
 }
 .button_player {
     font-size: 20px;
@@ -742,19 +722,68 @@ header, .binary-signal-strip, .hero, .section {
     gap: 10px;
     cursor: pointer;
 }
+.settings_button {
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+    text-align: right;
+}
+.settings_container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    justify-content: right;
+    gap: 10px;
+    cursor: pointer;
+}
+.autoplay_speed_container {
+    position: relative;
+    bottom: 160px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-items: top;
+    justify-content: left;
+    gap: 10px;
+    cursor: pointer;
+    opacity: 0;
+}
+.autoplay_speed_container.active {
+    opacity: 1;
+    transition: opacity 0.2s ease;
+}
 .speed_container {
     display: flex;
-    align-items: center;
     justify-content: center;
     gap: 10px;
     cursor: pointer;
 }
-.autoplay_container {
-    display: flex;
-    align-items: center;
-    justify-content: right;
-    gap: 10px;
+#autoplay_button {
+    font-size: 14px;
     cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+}
+#fullscreen_button {
+    position: relative;
+    right: 10px;
+    font-size: 14px;
+    text-align: right;
+    cursor: pointer;
+    color: white;
+    background-color: transparent;
+    border: none;
+    border-radius: 10px;
+}
+#fullscreen_button:hover {
+    color: #FF7A00;
+    transition: 0.2s ease;
+}
+#fullscreen_button:focus {
+    outline: none;
 }
 .fullscreen {
     position: relative;

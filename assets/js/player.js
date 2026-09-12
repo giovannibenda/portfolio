@@ -15,11 +15,14 @@ pauseIcon.setAttribute("class", "bi bi-pause");
 let initial_video = document.getElementById("initial_video");
 let duration_video = document.getElementById("duration_video");
 let timeline = document.getElementById("timeline");
+let volumeIcon = document.getElementById("volume_icon");
 let volumeSlider = document.getElementById("volumeSlider");
 let speedSlider = document.getElementById("speedSlider");
 let videoTitle = document.getElementById("video_title");
 let videoDescription = document.getElementById("video_description");
 let videoAuthor = document.getElementById("video_author");
+let settingsIcon = document.getElementById("settings_icon");
+let autoplayspeedContainer = document.getElementById("autoplay_speed_container");
 let autoplay = document.getElementById("autoPlay");
 let fullscreenButton = document.getElementById("fullscreen_button");
 let refreshTime;
@@ -99,11 +102,12 @@ function removeSeconds() {
 function setVolume() {
     video.volume = volumeSlider.value / 100;
     localStorage.setItem("volumeValue", volumeSlider.value);
-    let volumeIcon = document.getElementById("volume_icon");
     if (video.volume == 0) {
-        volumeIcon.addAttribute("class", "bi bi-volume-mute-fill");
-    } else {
         volumeIcon.removeAttribute("class", "bi bi-volume-up-fill");
+        volumeIcon.setAttribute("class", "bi bi-volume-mute-fill");
+    } else {
+        volumeIcon.removeAttribute("class", "bi bi-volume-mute-fill");
+        volumeIcon.setAttribute("class", "bi bi-volume-up-fill");
     }
 }
 
@@ -189,7 +193,7 @@ function playpauseVideo() {
             setVolume();
             setSpeed(speedSlider.value);
             duration_video.innerHTML = formatTime(video.duration);
-            initial_video.innerHTML = (video.currentTime < 0.01) ? "00:00" : formatTime(video.currentTime);
+            initial_video.innerHTML = (video.currentTime < 0.01) ? "00:00 /" : formatTime(video.currentTime) + " /";
             timeline.value = (video.currentTime * 100) / video.duration;
             checkEndOfVideo();
         }, 200);
@@ -198,7 +202,7 @@ function playpauseVideo() {
         video.pause();
         playpause.removeChild(playpause.firstElementChild);
         playpause.appendChild(playIcon);
-        initial_video.innerHTML = formatTime(video.currentTime);
+        initial_video.innerHTML = formatTime(video.currentTime) + " /";
         timeline.value = (video.currentTime * 100) / video.duration;
     }
 }
@@ -245,6 +249,17 @@ function toggleFullscreen() {
 
 // Aggiornamento immediato quando l'utente muove gli slider (oltre al polling durante la riproduzione)
 volumeSlider.addEventListener("input", setVolume);
+volumeIcon.addEventListener("click", () => {
+    if (video.volume == 0) {
+        volumeSlider.value = 50;
+    } else {
+        volumeSlider.value = 0;
+    }
+    setVolume();
+})
+settingsIcon.addEventListener("click", () => {
+    autoplayspeedContainer.classList.toggle("active");
+})
 speedSlider.addEventListener("input", () => setSpeed(speedSlider.value));
 
 // --- Inizializzazione pagina player ---
