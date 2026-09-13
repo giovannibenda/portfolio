@@ -194,7 +194,7 @@ function playpauseVideo() {
             setVolume();
             setSpeed(speedSlider.value);
             duration_video.innerHTML = formatTime(video.duration);
-            initial_video.innerHTML = (video.currentTime < 0.01) ? "00:00 /" : formatTime(video.currentTime) + " /";
+            initial_video.innerHTML = (video.currentTime < 0.01) ? "00:00" : formatTime(video.currentTime);
             timeline.value = (video.currentTime * 100) / video.duration;
             checkEndOfVideo();
         }, 200);
@@ -203,7 +203,7 @@ function playpauseVideo() {
         video.pause();
         playpause.removeChild(playpause.firstElementChild);
         playpause.appendChild(playIcon);
-        initial_video.innerHTML = formatTime(video.currentTime) + " /";
+        initial_video.innerHTML = formatTime(video.currentTime);
         timeline.value = (video.currentTime * 100) / video.duration;
     }
 }
@@ -228,7 +228,7 @@ function toggleFullscreen() {
         video.classList.remove("fullscreen");
         videoPlayerFunctions.classList.remove("active");
         fullscreenButton.removeChild(fullscreenButton.firstElementChild);
-        fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
+        fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-fullscreen");
 
     } else {
         videoPlayerCard.classList.add("fullscreen");
@@ -243,7 +243,7 @@ function toggleFullscreen() {
             video.classList.remove("fullscreen");
             videoPlayerFunctions.classList.remove("active");
             fullscreenButton.removeChild(fullscreenButton.firstElementChild);
-            fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-arrows-fullscreen");
+            fullscreenButton.appendChild(document.createElement("i")).setAttribute("class", "bi bi-fullscreen");
         }
     })
 }
@@ -258,10 +258,10 @@ volumeIcon.addEventListener("click", () => {
     }
     setVolume();
 })
-volumeIcon.addEventListener("mouseover", () => {
+volumeIcon.addEventListener("mouseenter", () => {
     volumeSlider.classList.add("active");
 })
-volumeContainer.addEventListener("mouseout", () => {
+volumeContainer.addEventListener("mouseleave", () => {
     volumeSlider.classList.remove("active");
 })
 settingsIcon.addEventListener("click", () => {

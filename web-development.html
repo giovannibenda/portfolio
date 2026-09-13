@@ -26,35 +26,37 @@ backlink: progetti
                 <div class="video_settings">
                     <button id="playpause_video" class="button_player" onclick="playpauseVideo()"></button>
                     <div class="video_duration">
-                        <div id="initial_video" class="initial_video">00:00 /</div>
+                        <div id="initial_video" class="initial_video">00:00</div>
+                        <div id="slash" class="slash"> / </div>
                         <div id="duration_video" class="duration_video">00:00</div>
                     </div>
                     <div id="volume_container" class="volume_container">
                         <i id="volume_icon" class="bi bi-volume-up-fill"></i>
-                        <input type="range" min="0" max="100" value="50" id="volumeSlider" class="volumeSLider">
+                        <input type="range" min="0" max="100" value="50" id="volumeSlider" class="volumeSlider">
                     </div>
+                    <div class=""></div>
                     <button id="settings_button" class="settings_button">
-                        <i id="settings_icon" class="bi bi-gear-fill"></i>
+                        <i id="settings_icon" class="bi bi-sliders2-vertical"></i>
                         <div class="settings_container">
                             <div id="autoplay_speed_container" class="autoplay_speed_container">
                                 <div class="speed_container">
                                     <p id="speed">1x</p>
                                     <div class="speed_slider">
                                         <div>Speed</div>
-                                        <input type="range" min="0" max="5" value="2" id="speedSlider">
+                                        <input type="range" min="0" max="5" value="2" id="speedSlider" class="speedSlider">
                                     </div>
                                 </div>
                                 <div class="autoplay_box">
                                     <div>
                                         <div>Autoplay</div>
-                                        <input type="checkbox" value="on" checked="true" id="autoPlay" onclick="autoPlay()">
+                                        <input type="checkbox" value="on" checked="true" id="autoPlay" onclick="autoPlay()" class="autoplayBox">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </button>
                     <button id="fullscreen_button" class="" onclick="toggleFullscreen()">
-                        <i class="bi bi-arrows-fullscreen"></i>
+                        <i class="bi bi-fullscreen"></i>
                     </button>
                 </div>
             </div>
