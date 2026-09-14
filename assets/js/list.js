@@ -1,50 +1,39 @@
-function createVideoCard(track) {
+function createArticleCard(track) {
 
-    let video_cards = document.getElementById("video_cards");
-    let card = document.createElement("div");
-    card.className = "video_card";
-
-    card.addEventListener("click", () => openPlayer(track));
+    let article_cards = document.getElementById("article_cards");
+    let card = document.createElement("a");
+    card.className = "article_card";
+    card.setAttribute("data-track-id", track.id);
+    card.setAttribute("href", "article.html?" + track.title);
+    card.setAttribute("onclick", "setTrackID(" + track.id + ")");
 
     card.innerHTML = `
-        <div class="video_card_preview">
-            <div class="video_card_overlay">
-                <img src="${track.image ? track.image : 'assets/default-thumbnail.jpg'}" alt="${track.title}" class="video_thumbnail">
-                <div class="play_button"></div> 
-            </div>
-            <div class="video_card_info">
-                <div class="video_card_title">${track.title}</div>
-                <div class="video_card_author">di ${track.author}</div>
-            </div>
+        <img src="${track.image ? track.image : 'assets/images/video_cover.jpg'}" alt="${track.title}" class="article_card_image">
+        <div class="article_card_info">
+            <div class="article_card_title">${track.title}</div>
+            <div class="article_card_author">di ${track.author}</div>
+            <div class="article_card_description">${track.description}</div>
         </div>
     `;
 
-    video_cards.appendChild(card);
+    article_cards.appendChild(card);
 }
 
-function renderVideoCards() {
+function renderArticleCards() {
     trackList.forEach((track) => {
         if (track.genre == localStorage.getItem("selectedCategory")) {
-            createVideoCard(track);
+            createArticleCard(track);
         }
     })
 }
 
-function openPlayer(track) {
-    localStorage.setItem("trackIndex", track.id);
-    createVideo();
-    document.getElementById("popup_video_overlay").classList.add("active");
+function setTrackID(element) {
+    localStorage.setItem("trackIndex", element);
 }
 
-function closePlayer() {
-    stopVideo();
-    document.getElementById("popup_video_overlay").classList.remove("active");
-    localStorage.removeItem('trackIndex');
-}
-
-async function main() {
+async function initList() {
     await loadTrackList();
-    renderVideoCards();
+    renderArticleCards();
 }
 
-window.addEventListener("DOMContentLoaded", main);
+window.addEventListener("DOMContentLoaded", initList);

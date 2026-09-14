@@ -1,9 +1,3 @@
-// player.js — pagina del player singolo (player.html)
-// Richiede data.js incluso PRIMA di questo file (fornisce trackList e loadTrackList)
-
-let trackIndex;
-let trackPath;
-let track;
 let video;
 let videoPlayerCard = document.getElementById("video_player_card");
 let videoPlayerFunctions = document.getElementById("video_functions");
@@ -248,7 +242,16 @@ function toggleFullscreen() {
     })
 }
 
-// Aggiornamento immediato quando l'utente muove gli slider (oltre al polling durante la riproduzione)
+function openPlayer() {
+    createVideo();
+    document.getElementById("popup_video_overlay").classList.add("active");
+}
+
+function closePlayer() {
+    stopVideo();
+    document.getElementById("popup_video_overlay").classList.remove("active");
+}
+
 volumeSlider.addEventListener("input", setVolume);
 volumeIcon.addEventListener("click", () => {
     if (video.volume == 0) {
@@ -269,13 +272,8 @@ settingsIcon.addEventListener("click", () => {
 })
 speedSlider.addEventListener("input", () => setSpeed(speedSlider.value));
 
-// --- Inizializzazione pagina player ---
 async function initPlayer() {
     await loadTrackList();
-
-    trackIndex = localStorage.getItem("trackIndex") || 0;
-    trackPath = trackList[trackIndex].path;
-    track = trackList[trackIndex]
 
     createVideo();
     videoInfo();
