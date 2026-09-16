@@ -548,6 +548,9 @@ header, .binary-signal-strip, .hero, .section {
     transform-origin: center;
     cursor: pointer;
 }
+.video_card_preview {
+    cursor: pointer;
+}
 .video_card_overlay {
     position: relative;
     width: 100%;
@@ -565,8 +568,8 @@ header, .binary-signal-strip, .hero, .section {
 }
 .play_button {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 38%;
+    left: 38%;
     transform: translate(-50%, -50%); /* Centra perfettamente l'elemento */
     width: 60px;
     height: 60px;
@@ -607,14 +610,17 @@ header, .binary-signal-strip, .hero, .section {
 .video_card_title {
     font-family: 'Doto', sans-serif;
     font-size: 1.5rem;
-    color: white;
+    color: black;
     margin-top: 10px;
 }
 .video_card_author {
     font-family: 'Doto', sans-serif;
     font-size: 1rem;
-    color: white;
+    color: black;
     margin-top: 5px;
+}
+.video_card_description {
+    color: black;
 }
 .popup_video_overlay {
     display: none; /* Nasconde il popup di base */

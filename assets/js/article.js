@@ -5,17 +5,17 @@ function createArticle (track) {
     let article = document.getElementById("article");
     article.innerHTML = `
         <div class="article_grid">
-            <div class="video_card_preview">
+            <div class="video_card_preview" onclick="openPlayer()">
                 <div class="video_card_overlay">
                     <img src="${track.image ? track.image : 'assets/default-thumbnail.jpg'}" alt="${track.title}" class="video_thumbnail">
                     <div class="play_button"></div> 
                 </div>
-                <div class="video_card_info">
-                    <div class="video_card_title">${track.title}</div>
-                    <div class="video_card_author">di ${track.author}</div>
-                </div>
             </div>
-            <p>${track.description}</p>
+            <div class="video_card_info">
+                <div class="video_card_title">${track.title}</div>
+                <div class="video_card_author">di ${track.author}</div>
+            </div>
+            <div class="video_card_description">${track.description}</div>
         </div>
         <div id="popup_video_overlay" class="popup_video_overlay">
             <div id="video_player_card" class="video_player_card">
@@ -62,6 +62,11 @@ function createArticle (track) {
                                 <i class="bi bi-fullscreen"></i>
                             </button>
                         </div>
+                    </div>
+                    <div class="video_info">
+                        <div id="video_title" class="video_title">${track.title}</div>
+                        <div id="video_author" class="video_author">di ${track.author}</div>
+                        <div id="video_description" class="video_description">${track.description}</div>
                     </div>
                 </div>
             </div>

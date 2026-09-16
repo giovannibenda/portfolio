@@ -1,25 +1,25 @@
 let video;
-let videoPlayerCard = document.getElementById("video_player_card");
-let videoPlayerFunctions = document.getElementById("video_functions");
-let playpause = document.getElementById("playpause_video");
-let playIcon = document.createElement("i");
-playIcon.setAttribute("class", "bi bi-caret-right-fill");
-let pauseIcon = document.createElement("i");
-pauseIcon.setAttribute("class", "bi bi-pause");
-let initial_video = document.getElementById("initial_video");
-let duration_video = document.getElementById("duration_video");
-let timeline = document.getElementById("timeline");
-let volumeContainer = document.getElementById("volume_container");
-let volumeIcon = document.getElementById("volume_icon");
-let volumeSlider = document.getElementById("volumeSlider");
-let speedSlider = document.getElementById("speedSlider");
-let videoTitle = document.getElementById("video_title");
-let videoDescription = document.getElementById("video_description");
-let videoAuthor = document.getElementById("video_author");
-let settingsIcon = document.getElementById("settings_icon");
-let autoplayspeedContainer = document.getElementById("autoplay_speed_container");
-let autoplay = document.getElementById("autoPlay");
-let fullscreenButton = document.getElementById("fullscreen_button");
+let videoPlayerCard;
+let videoPlayerFunctions;
+let playpause;
+let playIcon;
+let pauseIcon;
+let initial_video;
+let duration_video;
+let timeline;
+let volumeContainer;
+let volumeIcon;
+let volumeSlider;
+let speedSlider;
+let settingsIcon;
+let autoplayspeedContainer;
+let autoplay;
+let fullscreenButton;
+
+let videoTitle;
+let videoAuthor;
+let videoDescription;
+
 let refreshTime;
 let refreshSlider;
 let minutes;
@@ -29,18 +29,97 @@ let primeUse = false;
 let firstUse = localStorage.getItem("using");
 let count = 0;
 
+function setupPlayer() {
+    videoPlayerCard = document.getElementById("video_player_card");
+    videoPlayerFunctions = document.getElementById("video_functions");
+    playpause = document.getElementById("playpause_video");
+    initial_video = document.getElementById("initial_video");
+    duration_video = document.getElementById("duration_video");
+    timeline = document.getElementById("timeline");
+    volumeContainer = document.getElementById("volume_container");
+    volumeIcon = document.getElementById("volume_icon");
+    volumeSlider = document.getElementById("volumeSlider");
+    speedSlider = document.getElementById("speedSlider");
+    settingsIcon = document.getElementById("settings_icon");
+    autoplayspeedContainer = document.getElementById("autoplay_speed_container");
+    autoplay = document.getElementById("autoPlay");
+    fullscreenButton = document.getElementById("fullscreen_button");
+
+    videoTitle = document.getElementById("video_title");
+    videoAuthor = document.getElementById("video_author");
+    videoDescription = document.getElementById("video_description")
+
+    playIcon = document.createElement("i");
+    playIcon.setAttribute("class", "bi bi-caret-right-fill");
+    pauseIcon = document.createElement("i");
+    pauseIcon.setAttribute("class", "bi bi-pause");
+    
+    if (playpause && !playpause.children.length) {
+        playpause.appendChild(playIcon);
+    }
+
+    if (volumeSlider) {
+        volumeSlider.addEventListener("input", setVolume);
+    }
+    if (speedSlider) {
+        speedSlider.addEventListener("input", (e) => setSpeed(e.target.value));
+    }
+
+    if (volumeIcon) {
+        volumeIcon.addEventListener("click", () => {
+            if (video.volume == 0) {
+                volumeSlider.value = 50;
+            } else {
+                volumeSlider.value = 0;
+            }
+            setVolume();
+        })
+        volumeIcon.addEventListener("mouseenter", () => {
+            volumeSlider.classList.add("active");
+        })
+    }
+
+    if (volumeContainer) {
+        volumeContainer.addEventListener("mouseleave", () => {
+            volumeSlider.classList.remove("active");
+        })
+    }
+
+    if (settingsIcon) {
+        settingsIcon.addEventListener("click", () => {
+            autoplayspeedContainer.classList.toggle("active");
+        })
+    }
+
+    if (speedSlider) {
+        speedSlider.addEventListener("input", () => setSpeed(speedSlider.value));
+    }
+    
+    createVideo();
+    volumePreference();
+    speedPreference();
+    autoplayPreference();
+}
+
 function createVideo() {
     trackIndex = localStorage.getItem("trackIndex") || 0;
     trackPath = trackList[trackIndex].path;
     track = trackList[trackIndex];
     const container = document.getElementById("video_container");
-    container.innerHTML = ""; // Rimuove eventuali video precedenti
+    
+    if (!container) return;
+    container.innerHTML = ""; 
+    
     video = document.createElement("video");
     video.setAttribute("src", trackPath);
     video.setAttribute("width", "800");
-    video.setAttribute("height", "");
     video.setAttribute("type", "video/mp4");
-    videoInfo();
+    
+    // Rimosso videoInfo() perché i testi sono già stampati da createArticle()
+    if (videoPlayerCard) {
+        videoPlayerCard.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))';
+    }
+    
     container.appendChild(video);
 }
 
@@ -252,36 +331,17 @@ function closePlayer() {
     document.getElementById("popup_video_overlay").classList.remove("active");
 }
 
-volumeSlider.addEventListener("input", setVolume);
-volumeIcon.addEventListener("click", () => {
-    if (video.volume == 0) {
-        volumeSlider.value = 50;
-    } else {
-        volumeSlider.value = 0;
-    }
-    setVolume();
-})
-volumeIcon.addEventListener("mouseenter", () => {
-    volumeSlider.classList.add("active");
-})
-volumeContainer.addEventListener("mouseleave", () => {
-    volumeSlider.classList.remove("active");
-})
-settingsIcon.addEventListener("click", () => {
-    autoplayspeedContainer.classList.toggle("active");
-})
-speedSlider.addEventListener("input", () => setSpeed(speedSlider.value));
-
-async function initPlayer() {
+async function initArticle() {
     await loadTrackList();
 
-    createVideo();
-    videoInfo();
-    volumePreference();
-    speedPreference();
-    autoplayPreference();
+    trackIndex = localStorage.getItem("trackIndex") || 0;
+    track = trackList[trackIndex];
+    trackPath = track.path;
 
-    playpause.appendChild(playIcon);
+    createArticle(track);
+
+    setupPlayer();
 }
 
-window.addEventListener("DOMContentLoaded", initPlayer);
+window.addEventListener("DOMContentLoaded", initArticle);
+

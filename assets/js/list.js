@@ -12,7 +12,6 @@ function createArticleCard(track) {
         <div class="article_card_info">
             <div class="article_card_title">${track.title}</div>
             <div class="article_card_author">di ${track.author}</div>
-            <div class="article_card_description">${track.description}</div>
         </div>
     `;
 
