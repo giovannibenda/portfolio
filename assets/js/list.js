@@ -8,11 +8,12 @@ function createArticleCard(track) {
     card.setAttribute("onclick", "setTrackID(" + track.id + ")");
 
     card.innerHTML = `
-        <img src="${track.image ? track.image : 'assets/images/video_cover.jpg'}" alt="${track.title}" class="article_card_image">
-        <div class="article_card_info">
-            <div class="article_card_title">${track.title}</div>
-            <div class="article_card_author">di ${track.author}</div>
+        <div class="cover">
+            <img src="${track.image ? track.image : 'assets/images/video_cover.jpg'}" alt="${track.title}" class="article_card_image">
         </div>
+        <div class="article_card_info">
+        <div class="article_card_title">${track.title}</div>
+        <div class="article_card_author">di ${track.author}</div>
     `;
 
     article_cards.appendChild(card);
