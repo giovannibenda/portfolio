@@ -331,17 +331,15 @@ function closePlayer() {
     document.getElementById("popup_video_overlay").classList.remove("active");
 }
 
-async function initArticle() {
+async function initPlayer() {
     await loadTrackList();
 
     trackIndex = localStorage.getItem("trackIndex") || 0;
     track = trackList[trackIndex];
     trackPath = track.path;
 
-    createArticle(track);
-
     setupPlayer();
 }
 
-window.addEventListener("DOMContentLoaded", initArticle);
+window.addEventListener("DOMContentLoaded", initPlayer);
 

@@ -559,6 +559,18 @@ header, .binary-signal-strip, .hero, .section {
     gap: 50px;
     padding: 50px;
 }
+.article_title {
+    font-family: 'Doto', sans-serif;
+    font-size: 4rem;
+    color: black;
+    margin-top: 10px;
+}
+.article_author {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.5rem;
+    color: black;
+    margin-top: 5px;
+}
 .video_cards {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -660,7 +672,22 @@ header, .binary-signal-strip, .hero, .section {
     margin-top: 5px;
 }
 .video_card_description {
+    font-family: 'Doto', sans-serif;
+    display: grid;
+    grid-template-columns: auto;
+    gap: 50px;
+    font-size: 1rem;
     color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-bottom: 50px;
+    justify-items: right;
+}
+.graphic_element {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    gap: 50px;
 }
 .popup_video_overlay {
     display: none; /* Nasconde il popup di base */

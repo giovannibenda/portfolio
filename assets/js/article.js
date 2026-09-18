@@ -1,4 +1,4 @@
-function createArticle (track) {
+function createArticle (track, primaParte, secondaParte, mostraImmagine) {
     let category = localStorage.getItem("selectedCategory");
     let categoryTitle = document.getElementById("category");
     categoryTitle.innerHTML = "LAVORO / " + category.charAt(0).toUpperCase() + category.slice(1) + " / " + track.title;
@@ -12,11 +12,11 @@ function createArticle (track) {
                 </div>
             </div>
             <div class="video_card_info">
-                <div class="video_card_title">${track.title}</div>
-                <div class="video_card_author">di ${track.author}</div>
+                <div class="article_title">${track.title}</div>
+                <div class="article_author">di ${track.author}</div>
             </div>
-            <div class="video_card_description">${track.description}</div>
         </div>
+        <div id="video_card_description" class="video_card_description"></div>
         <div id="popup_video_overlay" class="popup_video_overlay">
             <div id="video_player_card" class="video_player_card">
                 <button class="close-popup-btn" onclick="closePlayer()">&times;</button>
@@ -65,8 +65,6 @@ function createArticle (track) {
                     </div>
                     <div class="video_info">
                         <div id="video_title" class="video_title">${track.title}</div>
-                        <div id="video_author" class="video_author">di ${track.author}</div>
-                        <div id="video_description" class="video_description">${track.description}</div>
                     </div>
                 </div>
             </div>
@@ -81,7 +79,28 @@ async function initArticle() {
     trackPath = trackList[trackIndex].path;
     track = trackList[trackIndex]
 
-    createArticle(track);
+    let articleContainer = document.getElementById("video_card_description");
+    let articleSection = document.createElement("div");
+    
+    const limite = 300;
+    const testoCompleto = track.description || '';
+    const indicePunto = testoCompleto.indexOf('.', limite);
+
+    let primaParte = testoCompleto;
+    let secondaParte = '';
+    let mostraImmagine = false;
+
+    for (let i = 0; i < track.graphic.length; i++) {
+        if (i == 0) {
+            articleSection.textContent = primaParte;
+        }
+        if (testoCompleto.length > limite && indicePunto !== -1 && track.graphic.length > 0) {
+            primaParte = testoCompleto.substring(0, indicePunto + 1);
+            secondaParte = testoCompleto.substring(indicePunto + 1).trim();
+            mostraImmagine = true;
+        }
+
+    createArticle(track, primaParte, secondaParte, mostraImmagine);
 }
 
 window.addEventListener("DOMContentLoaded", initArticle);
