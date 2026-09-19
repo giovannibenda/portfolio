@@ -1,4 +1,4 @@
-function createArticle (track, primaParte, secondaParte, mostraImmagine) {
+function createArticle (track) {
     let category = localStorage.getItem("selectedCategory");
     let categoryTitle = document.getElementById("category");
     categoryTitle.innerHTML = "LAVORO / " + category.charAt(0).toUpperCase() + category.slice(1) + " / " + track.title;
@@ -72,35 +72,78 @@ function createArticle (track, primaParte, secondaParte, mostraImmagine) {
     `;
 }
 
-async function initArticle() {
-    await loadTrackList();
+async function initArticle() { 
+    await loadTrackList(); 
+    let trackIndex = localStorage.getItem("trackIndex") || 0; 
+    let track = trackList[trackIndex]; 
 
-    trackIndex = localStorage.getItem("trackIndex") || 0;
-    trackPath = trackList[trackIndex].path;
-    track = trackList[trackIndex]
+    createArticle(track); 
 
-    let articleContainer = document.getElementById("video_card_description");
-    let articleSection = document.createElement("div");
-    
-    const limite = 300;
-    const testoCompleto = track.description || '';
-    const indicePunto = testoCompleto.indexOf('.', limite);
+    let articleContainer = document.getElementById("video_card_description"); 
+    if (!articleContainer) return;
 
-    let primaParte = testoCompleto;
-    let secondaParte = '';
-    let mostraImmagine = false;
+    const limite = 500; 
+    const testoCompleto = track.description || ''; 
+    let indicePunto = testoCompleto.indexOf('.', limite); 
 
-    for (let i = 0; i < track.graphic.length; i++) {
-        if (i == 0) {
-            articleSection.textContent = primaParte;
-        }
-        if (testoCompleto.length > limite && indicePunto !== -1 && track.graphic.length > 0) {
-            primaParte = testoCompleto.substring(0, indicePunto + 1);
-            secondaParte = testoCompleto.substring(indicePunto + 1).trim();
-            mostraImmagine = true;
-        }
+    if (testoCompleto.length > limite && indicePunto !== -1 && track.graphic && track.graphic.length > 0) { 
+        
+        let primaParte = testoCompleto.substring(0, indicePunto + 1); 
+        let articleSection1 = document.createElement("div");
+        articleSection1.textContent = primaParte;
+        articleContainer.appendChild(articleSection1);
 
-    createArticle(track, primaParte, secondaParte, mostraImmagine);
+        let testoRimanente = testoCompleto.substring(indicePunto + 1);
+
+        for (let i = 0; i < track.graphic.length; i++) { 
+            let articleSubContainer = document.createElement("div");
+            articleSubContainer.className = "graphic_container"
+            let articleGraphic = document.createElement("img"); 
+            articleGraphic.setAttribute("src", track.graphic[i]);
+            
+            if (i % 2 != 0) {
+                articleSubContainer.appendChild(articleGraphic);
+            }
+
+            let prossimoPunto = testoRimanente.indexOf('.', limite);
+
+            let testoParagrafo = '';
+            if (prossimoPunto !== -1 && i < track.graphic.length - 1) {
+                testoParagrafo = testoRimanente.substring(0, prossimoPunto + 1);
+                testoRimanente = testoRimanente.substring(prossimoPunto + 1);
+            } else {
+                testoParagrafo = testoRimanente;
+                testoRimanente = '';
+            }
+
+            if (testoParagrafo.trim().length > 0) {
+                let nuovaSezione = document.createElement("div"); 
+                nuovaSezione.textContent = testoParagrafo; 
+                if (i % 2 === 0) {
+                    articleSubContainer.appendChild(nuovaSezione);
+                    articleSubContainer.appendChild(articleGraphic); 
+                } else {
+                    articleSubContainer.appendChild(nuovaSezione);
+                }
+                articleContainer.appendChild(articleSubContainer);
+            }
+
+            prossimoPunto = testoRimanente.indexOf('.', limite);
+
+            if (testoParagrafo.trim().length > 0) {
+                let nuovaSezione = document.createElement("div"); 
+                nuovaSezione.textContent = testoParagrafo; 
+                articleContainer.appendChild(nuovaSezione);
+            }
+
+            
+            if (testoRimanente.length === 0) break;
+        } 
+    } else { 
+        let articleSection = document.createElement("div");
+        articleSection.textContent = testoCompleto; 
+        articleContainer.appendChild(articleSection);
+    } 
 }
 
 window.addEventListener("DOMContentLoaded", initArticle);

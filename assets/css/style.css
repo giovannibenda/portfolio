@@ -683,7 +683,7 @@ header, .binary-signal-strip, .hero, .section {
     padding-bottom: 50px;
     justify-items: right;
 }
-.graphic_element {
+.graphic_container {
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: auto;
