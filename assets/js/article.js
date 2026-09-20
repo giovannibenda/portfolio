@@ -84,62 +84,116 @@ async function initArticle() {
 
     const limite = 500; 
     const testoCompleto = track.description || ''; 
-    let indicePunto = testoCompleto.indexOf('.', limite); 
-
-    if (testoCompleto.length > limite && indicePunto !== -1 && track.graphic && track.graphic.length > 0) { 
+    const haImmagini = track.graphic && track.graphic.length > 0;
+    
+    if (haImmagini) { 
         
-        let primaParte = testoCompleto.substring(0, indicePunto + 1); 
-        let articleSection1 = document.createElement("div");
-        articleSection1.textContent = primaParte;
-        articleContainer.appendChild(articleSection1);
+        // 1. Primo paragrafo iniziale (senza immagini)
+        let indicePunto = testoCompleto.indexOf('.', limite);
+        if (indicePunto === -1 || testoCompleto.length <= limite) {
+            indicePunto = testoCompleto.length; 
+        } else {
+            indicePunto = indicePunto + 1; 
+        }
+        
+        let primoParagrafo = testoCompleto.substring(0, indicePunto).trim(); 
+        if (primoParagrafo.length > 0) {
+            let articleSection1 = document.createElement("div");
+            articleSection1.textContent = primoParagrafo;
+            articleContainer.appendChild(articleSection1);
+        }
 
-        let testoRimanente = testoCompleto.substring(indicePunto + 1);
+        // Testo rimanente da distribuire
+        let testoRimanente = testoCompleto.substring(indicePunto).trim();
 
+        // 2. Ciclo su TUTTE le immagini disponibili
         for (let i = 0; i < track.graphic.length; i++) { 
+            
+            // --- PARTE A: CREAZIONE DEL CONTAINER GRAFICO ---
             let articleSubContainer = document.createElement("div");
-            articleSubContainer.className = "graphic_container"
+            articleSubContainer.className = "graphic_container";
+            
             let articleGraphic = document.createElement("img"); 
             articleGraphic.setAttribute("src", track.graphic[i]);
-            
-            if (i % 2 != 0) {
-                articleSubContainer.appendChild(articleGraphic);
-            }
-
-            let prossimoPunto = testoRimanente.indexOf('.', limite);
 
             let testoParagrafo = '';
-            if (prossimoPunto !== -1 && i < track.graphic.length - 1) {
-                testoParagrafo = testoRimanente.substring(0, prossimoPunto + 1);
-                testoRimanente = testoRimanente.substring(prossimoPunto + 1);
-            } else {
-                testoParagrafo = testoRimanente;
-                testoRimanente = '';
-            }
 
-            if (testoParagrafo.trim().length > 0) {
-                let nuovaSezione = document.createElement("div"); 
-                nuovaSezione.textContent = testoParagrafo; 
-                if (i % 2 === 0) {
-                    articleSubContainer.appendChild(nuovaSezione);
-                    articleSubContainer.appendChild(articleGraphic); 
+            // Estraiamo il testo da affiancare all'immagine corrente
+            if (testoRimanente.length > 0) {
+                let prossimoPunto = testoRimanente.indexOf('.', limite);
+                if (prossimoPunto === -1 || testoRimanente.length <= limite) {
+                    prossimoPunto = testoRimanente.length;
                 } else {
-                    articleSubContainer.appendChild(nuovaSezione);
+                    prossimoPunto = prossimoPunto + 1; 
                 }
-                articleContainer.appendChild(articleSubContainer);
+
+                testoParagrafo = testoRimanente.substring(0, prossimoPunto).trim();
+                testoRimanente = testoRimanente.substring(prossimoPunto).trim();
             }
 
-            prossimoPunto = testoRimanente.indexOf('.', limite);
-
-            if (testoParagrafo.trim().length > 0) {
-                let nuovaSezione = document.createElement("div"); 
+            let nuovaSezione = null;
+            if (testoParagrafo.length > 0) {
+                nuovaSezione = document.createElement("div"); 
                 nuovaSezione.textContent = testoParagrafo; 
-                articleContainer.appendChild(nuovaSezione);
             }
 
+            // Alternanza del layout affiancato
+            if (i % 2 === 0) {
+                if (nuovaSezione) articleSubContainer.appendChild(nuovaSezione);
+                articleSubContainer.appendChild(articleGraphic); 
+            } else {
+                articleSubContainer.appendChild(articleGraphic);
+                if (nuovaSezione) articleSubContainer.appendChild(nuovaSezione);
+            }
             
-            if (testoRimanente.length === 0) break;
+            // Appendiamo il blocco grafico al container principale
+            articleContainer.appendChild(articleSubContainer);
+
+
+            // --- PARTE B: CREAZIONE DEL PARAGRAFO SEPARATORE DI SOLO TESTO (A TUTTA LARGHEZZA) ---
+            // Estraiamo subito il blocco successivo di testo per metterlo sotto il container appena creato
+            if (testoRimanente.length > 0) {
+                let puntoSeparatore = testoRimanente.indexOf('.', limite);
+                if (puntoSeparatore === -1 || testoRimanente.length <= limite) {
+                    puntoSeparatore = testoRimanente.length;
+                } else {
+                    puntoSeparatore = puntoSeparatore + 1;
+                }
+
+                let testoSeparatore = testoRimanente.substring(0, puntoSeparatore).trim();
+                testoRimanente = testoRimanente.substring(puntoSeparatore).trim();
+
+                if (testoSeparatore.length > 0) {
+                    let sezioneSeparata = document.createElement("div");
+                    sezioneSeparata.className = "article_text_block"; // Assegna questa classe per gestirla in CSS (width: 100%)
+                    sezioneSeparata.textContent = testoSeparatore;
+                    articleContainer.appendChild(sezioneSeparata);
+                }
+            }
         } 
+
+        // 3. GESTIONE DEL TESTO IN ECCESSO (Se avanza testo dopo aver finito tutte le immagini)
+        while (testoRimanente.length > 0) {
+            let puntoFinale = testoRimanente.indexOf('.', limite);
+            if (puntoFinale === -1 || testoRimanente.length <= limite) {
+                puntoFinale = testoRimanente.length;
+            } else {
+                puntoFinale = puntoFinale + 1; 
+            }
+
+            let paragrafoExtra = testoRimanente.substring(0, puntoFinale).trim();
+            testoRimanente = testoRimanente.substring(puntoFinale).trim();
+
+            if (paragrafoExtra.length > 0) {
+                let sezioneFinale = document.createElement("div");
+                sezioneFinale.className = "article_text_block";
+                sezioneFinale.textContent = paragrafoExtra;
+                articleContainer.appendChild(sezioneFinale);
+            }
+        }
+
     } else { 
+        // Caso standard: testo di qualsiasi lunghezza ma ZERO immagini
         let articleSection = document.createElement("div");
         articleSection.textContent = testoCompleto; 
         articleContainer.appendChild(articleSection);

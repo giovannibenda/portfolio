@@ -22,43 +22,43 @@ title: Giovanni Benda - Portfolio
           <div class="tag"><span>CS50W</span> Web Programming with Python and JavaScript · Harvard University</div>
           <div class="tag"><span>LAUREA 3+2</span> Musica Elettronica · Conservatorio di Milano</div>
       </div>
-      <div class="buttons">
-          <a href="#progetti" class="button">SCOPRI I PROGETTI</a>
-          <a href="#repository" class="button">VAI AL CODICE</a>
-      </div>
   </div>
-  <div>
+  <div class="hero_terminal_buttons">
     <div class="hero-panel" aria-hidden="true">
-        <div class="terminal">
-          <div class="terminal-top">
-            <span class="terminal-dot terminal-dot-pink"></span>
-            <span class="terminal-dot terminal-dot-yellow"></span>
-            <span class="terminal-dot terminal-dot-green"></span>
+      <div class="terminal">
+        <div class="terminal-top">
+          <span class="terminal-dot terminal-dot-pink"></span>
+          <span class="terminal-dot terminal-dot-yellow"></span>
+          <span class="terminal-dot terminal-dot-green"></span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">whoami</span>
           </div>
-          <div class="terminal-body">
-            <div class="terminal-line">
+          <div class="terminal-output">
+            web developer · creative coder · computer music
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-command">stack</span>
+          </div> 
+          <div class="terminal-output">
+            Python · Django · JavaScript · HTML · CSS · Audio DSP
+          </div>
+          <div class="terminal-line">
               <span class="terminal-prompt">$</span>
-              <span class="terminal-command">whoami</span>
-            </div>
-            <div class="terminal-output">
-              web developer · creative coder · computer music
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-prompt">$</span>
-              <span class="terminal-command">stack</span>
-            </div> 
-            <div class="terminal-output">
-              Python · Django · JavaScript · HTML · CSS · Audio DSP
-            </div>
-            <div class="terminal-line">
-                <span class="terminal-prompt">$</span>
-                <span class="terminal-command">status</span>
-            </div>
-            <div class="terminal-status">
-                available for creative projects_
-            </div>
+              <span class="terminal-command">status</span>
+          </div>
+          <div class="terminal-status">
+              available for creative projects_
           </div>
         </div>
+      </div>
+    </div>
+    <div class="buttons">
+      <a href="#progetti" class="button">SCOPRI I PROGETTI</a>
+      <a href="#repository" class="button">VAI AL CODICE</a>
     </div>
   </div>
 </div>
@@ -188,20 +188,16 @@ title: Giovanni Benda - Portfolio
     <p>Per qualsiasi richiesta o collaborazione, puoi contattarmi tramite email o seguirmi sui social media:</p>
   </div>
   <div>
-  <!--     
-    <button href="mailto:giovanni.lodovico.benda@gmail.com">giovanni.lodovico.benda@gmail.com</button>
-    <button href="https://github.com/giovannibenda">Github</button>
-  -->
     <img src="assets/images/foto_profilo.JPG" alt="foto profilo">
   </div>
   <div>
     <form action="https://formspree.io/f/moeabpod" method="POST" class="form">
       <label for="email">
-        La tua email
+        <div>La tua email</div>
         <input type="email" name="email" placeholder="write your email" required>
       </label>
       <label for="message">
-        Messaggio
+        <div>Messaggio</div>
         <textarea name="message" placeholder="write your message" required></textarea>
       </label>
       <button type="submit">Invia</button>

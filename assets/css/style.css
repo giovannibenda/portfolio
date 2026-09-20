@@ -146,7 +146,7 @@ header {
 .description {
     margin:0 0 18px;
     font-family:"Doto","Silkscreen",monospace;
-    font-size:.9rem;
+    font-size: 1.1rem;
     font-weight:600;
     line-height:1.55;
     color: white;
@@ -184,8 +184,8 @@ header, .binary-signal-strip, .hero, .section {
 .hero{
     display: grid;
     grid-template-columns: auto auto;
+    gap: 50px;
     justify-content: space-between;
-    padding: 10px;
     background-color: #122169;
     color: white;
     padding: 50px;
@@ -200,7 +200,7 @@ header, .binary-signal-strip, .hero, .section {
     margin-top: 20px;
 }
 .hero .button {
-    font-family: 'Helvetica', sans-serif;
+    font-family: "Doto", sans-serif;
     text-decoration: none;
     color: white;
     background-color: transparent;
@@ -216,14 +216,21 @@ header, .binary-signal-strip, .hero, .section {
     border: 1px solid cyan;
     transition: 0.2s ease;
 }
+.hero_terminal_buttons {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
+    align-items: end;
+}
 .hero-panel{
-    width:100%;
+    width:90%;
     min-width:0;
+
 } 
 .terminal{
     width:100%;
-    background:#fff;
-    border:2px solid #fff500;
+    background: white;
+    border:2px solid #f2ff00;;
     box-shadow:
       0 0 8px rgba(255,245,0,.5),
       0 0 22px rgba(255,245,0,.18);
@@ -254,7 +261,7 @@ header, .binary-signal-strip, .hero, .section {
 }
 .terminal-body{
     padding:22px 24px 24px;
-    font-family:"IBM Plex Mono",monospace;
+    font-family: "Doto", sans-serif;
     color:#012169;
 }
 .terminal-line{
@@ -262,7 +269,7 @@ header, .binary-signal-strip, .hero, .section {
     align-items:baseline;
     gap:9px;
     margin-top:18px;
-    font-size:.96rem;
+    font-size:1.3rem;
     line-height:1.5;
 }
 .terminal-line:first-child{
@@ -270,7 +277,7 @@ header, .binary-signal-strip, .hero, .section {
 }
 .terminal-prompt{
     color:#ff00c8;
-    font-size:1.32em;
+    font-size:1.5em;
     font-weight:800;
     line-height:1;
     text-shadow:0 0 5px rgba(255,0,200,.45);
@@ -281,29 +288,24 @@ header, .binary-signal-strip, .hero, .section {
 }
 .terminal-output{
     margin-top:7px;
-    color:#012169;
-    font-size:.9rem;
-    font-weight:600;
+    color: #012169;
+    font-size:1.1rem;
+    font-weight:700;
     line-height:1.55;
 }
 .terminal-status{
     display:inline-block;
     margin-top:22px;
     padding:5px 9px;
-    background:#1a1a1a;
   
     font-family:"Doto","Silkscreen",monospace;
-    font-size:.83rem;
+    font-size:1.8rem;
     font-weight:900;
     line-height:1;
     letter-spacing:.03em;
     text-transform:lowercase;
   
-    color:#9dff00;
-    text-shadow:
-      0 0 2px #9dff00,
-      0 0 7px rgba(157,255,0,.85),
-      0 0 14px rgba(157,255,0,.45);
+    color: #00ff04;
 }
 @keyframes terminal-dot-flicker{
     0%,19%,22%,24%,55%,100%{
@@ -331,9 +333,9 @@ header, .binary-signal-strip, .hero, .section {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: space-around;
-    padding: 50px;
     background-color: #122169;
     color: white;
+    padding: 50px;
 }
 .section h2 {
     font-family: 'Helvetica', sans-serif;
@@ -353,10 +355,12 @@ header, .binary-signal-strip, .hero, .section {
     border-top: solid 2px #3A62FE;
     border-left: transparent;
     padding-top: 50px;
+    margin-left: 50px;
 }
 .description.description2 {
     border-left: solid 2px #3A62FE;
-    padding-left: 10px;
+    padding-left: 50px;
+    margin-left: 50px;
 }
 .section.stack, .section.progetti {
     display: grid;
@@ -365,20 +369,21 @@ header, .binary-signal-strip, .hero, .section {
 .cards {
     display: grid;
     grid-template-columns: auto auto;
-    gap: 20px;
+    gap: 50px;
     justify-content: space-around;
 }
 .card {
     display: grid;
     grid-template-columns: auto;
-    gap: 0px;
-    background-color: #f2f2f2;
+    grid-template-rows: 50% 50%;
+    background-color: white;
     color: #122169;
-    padding: 20px;
+    padding: 50px;
     border: 5px solid transparent;
     border-radius: 5px;
     transition: transform .25s ease;
     transform-origin: center;
+    align-items: center;
 }
 .card h3 {
     font-family: 'Helvetica', sans-serif;
@@ -425,6 +430,8 @@ header, .binary-signal-strip, .hero, .section {
 }
 .card.cardlink {
     border: 5px solid transparent;
+    align-items: baseline;
+    padding: 40px;
 }   
 .card.cardlink:hover {
     background-color: white;
@@ -528,9 +535,7 @@ header, .binary-signal-strip, .hero, .section {
     background-color: transparent;
 }
 .article_card:hover .cover {
-    background-color: rgba(255, 255, 255, 0.4) !important; /* Velo bianco leggero */
-    backdrop-filter: blur(100px) brightness(1.2); /* Sfoca lo sfondo e aumenta la luminosità del 20% */
-    -webkit-backdrop-filter: blur(100px) brightness(1.2); /* Per compatibilità Safari */
+    filter: brightness(0.8);
 }
 .article_card_info {
     position: absolute;
@@ -546,18 +551,16 @@ header, .binary-signal-strip, .hero, .section {
     color: white;
     background-color: transparent;
     font-family: 'Doto', sans-serif;
-    padding: 5px;
+    font-size: 1.8rem;
     justify-content: left;
     padding: 20px;
 }
-.article_card_info:hover {
-    background-color: black;
-}
 .article_grid {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 60% auto;
     gap: 50px;
     padding: 50px;
+    padding-top: 50px;
 }
 .article_title {
     font-family: 'Doto', sans-serif;
@@ -676,7 +679,7 @@ header, .binary-signal-strip, .hero, .section {
     display: grid;
     grid-template-columns: auto;
     gap: 50px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: black;
     padding-left: 50px;
     padding-right: 50px;
@@ -688,6 +691,12 @@ header, .binary-signal-strip, .hero, .section {
     grid-template-columns: auto auto;
     grid-template-rows: auto;
     gap: 50px;
+}
+.graphic_container img {
+    width: 100%;
+    min-width: 250px;
+    height: auto;
+    object-fit: cover;
 }
 .popup_video_overlay {
     display: none; /* Nasconde il popup di base */
@@ -1063,7 +1072,9 @@ header, .binary-signal-strip, .hero, .section {
     width:100%;
 }
 .repo-carousel {
+    position: relative;
     width:100%;
+    min-height: 380px;
     background:#fff;
     border:0;
     box-sizing:border-box;
@@ -1154,6 +1165,7 @@ width:100%;
     min-width:0;
     font-family:"Doto", sans-serif;
     font-size: 0.9rem;
+    font-weight: 600;
     line-height:1.45;
     color:#56636b;
     /*
@@ -1209,12 +1221,13 @@ width:100%;
     CONTROLLI CAROSELLO
     ================================ */
 .repo-carousel-controls {
+    position: absolute;
+    bottom: 0;
     display:grid;
     grid-template-columns:
         44px
         1fr
         44px;
-    align-items:center;
     width:100%;
     padding:18px;
     box-sizing:border-box;
@@ -1367,6 +1380,7 @@ width:100%;
 .section.contatti div:nth-child(2) {
     display: flex;
     flex-direction: column;
+    max-width: 300px;
     align-items: flex-start;
     justify-content: flex-end;
     gap: 15px;
@@ -1375,26 +1389,34 @@ width:100%;
     display: flex;
     flex-direction: column;
     gap: 50px;
+    padding-right: 50px;
+}
+.form label>div {
+    font-family: 'Doto', sans-serif;
+    font-size: 1.4rem;
+    margin-bottom: 30px;
 }
 .form input, .form textarea {
     font-family: 'Doto', sans-serif;
+    font-size: 1.2rem;
     color: #122169;
     background-color: #f2f2f2;
     border: none;
     padding: 10px;
-    border-radius: 5px;
     transition: 0.2s ease;
     width: 100%;
 }
 .form button {
     font-family: 'Doto', sans-serif;
+    font-size: 1.2rem;
     color: #122169;
     background-color: #f2f2f2;
     border: none;
     padding: 10px;
-    border-radius: 5px;
+    border-radius: 20px;
     transition: 0.2s ease;
-    width: 100px;
+    width: 200px;
+    height: 50px;
     cursor: pointer;
 }
 .form button:hover {
