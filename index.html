@@ -5,11 +5,13 @@ title: Giovanni Benda - Portfolio
 {% include header.html %}
 
 <section class="binary-signal-strip">
+  <div class="binary-stream">
     <div class="binary-signal-head">
       <span class="binary-label">SYS / BINARY STREAM</span>
-      <span class="binary-status">LIVE</span>
+      <span class="binary-status">LOADING</span>
     </div>
     <div id="binaryStream" class="binary-stream" aria-label="Binary data stream"></div>
+  </div>
 </section>
 
 <div id="introduzione" class="hero">
@@ -22,8 +24,12 @@ title: Giovanni Benda - Portfolio
           <div class="tag"><span>CS50W</span> Web Programming with Python and JavaScript · Harvard University</div>
           <div class="tag"><span>LAUREA 3+2</span> Musica Elettronica · Conservatorio di Milano</div>
       </div>
+      <div class="buttons">
+        <a href="#progetti" class="button">SCOPRI I PROGETTI</a>
+        <a href="#repository" class="button">VAI AL CODICE</a>
+      </div>
   </div>
-  <div class="hero_terminal_buttons">
+  <div class="hero_terminal_container">
     <div class="hero-panel" aria-hidden="true">
       <div class="terminal">
         <div class="terminal-top">
@@ -55,10 +61,6 @@ title: Giovanni Benda - Portfolio
           </div>
         </div>
       </div>
-    </div>
-    <div class="buttons">
-      <a href="#progetti" class="button">SCOPRI I PROGETTI</a>
-      <a href="#repository" class="button">VAI AL CODICE</a>
     </div>
   </div>
 </div>
@@ -109,7 +111,11 @@ title: Giovanni Benda - Portfolio
           <h4>WEB APP · CS50W</h4>
           <h3>MARKETPLACE DJANGO</h3>
           <div>Applicazione full-stack Django: aste, autenticazione, offerte, categorie, watchlist, commenti e profili utente.</div>
-          <div class="tags-languages"><div>PYTHON</div><div>DJANGO</div><div>SQLITE</div></div>
+          <div class="tags-languages">
+            <div>PYTHON</div>
+            <div>DJANGO</div>
+            <div>SQLITE</div>
+          </div>
           <div>ESPLORA LAVORI &#8594;</div>
         </a>
       </div>
@@ -118,7 +124,11 @@ title: Giovanni Benda - Portfolio
           <h4>COMPUTER MUSIC</h4>
           <h3>GENERATIVE AUDIO SYSTEMS</h3>
           <div>Patch e algoritmi per sintesi, trasformazione sonora, spazializzazione e composizione generativa.</div>
-          <div class="tags-languages"><div>SUPERCOLLIDER</div><div>CSOUND</div><div>DSP</div></div>
+          <div class="tags-languages">
+            <div>SUPERCOLLIDER</div>
+            <div>CSOUND</div>
+            <div>DSP</div>
+          </div>
           <div>ESPLORA LAVORI &#8594;</div>
         </a>
       </div>
@@ -127,7 +137,11 @@ title: Giovanni Benda - Portfolio
           <h4>INTERACTIVE MEDIA</h4>
           <h3>AUDIO + COMPUTER VISION</h3>
           <div>Esperimenti audiovisivi e sistemi di controllo del suono tramite tracking e analisi dell'immagine.</div>
-          <div class="tags-languages"><div>OPEN CV</div><div>PROCESSING</div><div>AUDIO</div></div>
+          <div class="tags-languages">
+            <div>OPEN CV</div>
+            <div>PROCESSING</div>
+            <div>AUDIO</div>
+          </div>
           <div>ESPLORA LAVORI &#8594;</div>
         </a>
       </div>
@@ -183,52 +197,37 @@ title: Giovanni Benda - Portfolio
 
 <div id="contatti" class="section contatti">
   <div>
-    <div class="category">05 / CONTATTI</div>
-    <h2>CONTATTI</h2>
-    <p>Per qualsiasi richiesta o collaborazione, puoi contattarmi tramite email o seguirmi sui social media:</p>
+    <div>
+      <div class="category">05 / CONTATTI</div>
+      <h2>CONTATTI</h2>
+      <p>Per qualsiasi richiesta o collaborazione, puoi contattarmi tramite email o seguirmi sui social media:</p>
+    </div>
+    <div>
+      <form action="https://formspree.io/f/moeabpod" method="POST" class="form">
+        <label for="email">
+          <div>La tua email</div>
+          <input type="email" name="email" placeholder="write your email" required>
+        </label>
+        <label for="message">
+          <div>Messaggio</div>
+          <textarea name="message" placeholder="write your message" required></textarea>
+        </label>
+        <button type="submit">Invia</button>
+      </form>  
+    </div>
   </div>
   <div>
-    <img src="assets/images/foto_profilo.JPG" alt="foto profilo">
-  </div>
-  <div>
-    <form action="https://formspree.io/f/moeabpod" method="POST" class="form">
-      <label for="email">
-        <div>La tua email</div>
-        <input type="email" name="email" placeholder="write your email" required>
-      </label>
-      <label for="message">
-        <div>Messaggio</div>
-        <textarea name="message" placeholder="write your message" required></textarea>
-      </label>
-      <button type="submit">Invia</button>
-    </form>  
-  </div>
-  <div>
-    <i class="bi bi-github"><a href=""> Github</a></i>
-    <i class="bi bi-youtube"><a href=""> Youtube</a></i>
-    <i class="bi bi-linkedin"><a href=""> Linkedin</a></i>
-    <i class="bi bi-envelope"><a href=""> Email</a></i>
+    <div>
+      <img src="assets/images/foto_profilo.JPG" alt="foto profilo">
+    </div>
+    <div>
+      <i class="bi bi-github"><a href=""></a></i>
+      <i class="bi bi-youtube"><a href=""></a></i>
+      <i class="bi bi-linkedin"><a href=""></a></i>
+      <i class="bi bi-envelope"><a href=""></a></i>
+    </div>
   </div>
 </div>
-
-<section class="complex-audio-fullwidth" aria-label="Complex Audio Signal">
-    <div class="wave-console complex-wave-console">
-      <div class="wave-console-head">
-        <span class="wave-label">
-          COMPLEX / AUDIO SIGNAL
-        </span>
-        <span class="wave-status">
-          LIVE
-        </span>
-      </div>
-      <canvas
-        id="complexWave"
-        class="complex-wave"
-        width="900"
-        height="150"
-      ></canvas>
-    </div>  
-</section>
 
 {% include footer.html %}
 

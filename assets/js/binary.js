@@ -185,5 +185,13 @@
   
       }
     );
+
+    setTimeout(() => {
+      const stripEl = document.querySelector(".binary-signal-strip");
+      
+      if (stripEl) {
+        stripEl.classList.add("deactive");
+      }
+    }, 1000); 
   
   })();

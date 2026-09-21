@@ -1,20 +1,25 @@
 header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     display:grid;
     grid-template-columns: auto auto;
     align-items: center;
     border-bottom: 2px solid #3A62FE;
-    z-index: 1;
-    position: sticky;
+    background-color: white;
+    padding: 5px;
+    padding-left: 10px;
+    font-weight: 600;
+    z-index: 3;
 }
 .logo {
     font-family:'Doto', sans-serif;
-    font-size:clamp(1.05rem,1.45vw,1.30rem);
-    font-weight:700;
-    letter-spacing:.04em;
+    font-size:clamp(2rem,1.45vw,1.30rem);
+    font-weight:500;
+    letter-spacing:.4em;
     text-decoration: none;
-    color:#012169;
-    -webkit-text-fill-color:#012169;
-    
+    color: white !important;    
     animation:flicker 5.5s infinite;
     }
     
@@ -27,6 +32,13 @@ header {
         opacity:.28;
     }
 }
+.logo div {
+    width: fit-content;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #1F92BC;
+    border-radius: 20px;
+}
 #menu {
     display: grid;
     grid-template-columns: auto  auto  auto auto auto;
@@ -37,14 +49,14 @@ header {
 #menu a {
     text-decoration: none;
     font-family: 'Doto', sans-serif;
-    color: #122169;
+    color: #1F92BC;
     padding: 10px;
+    border-radius: 20px;
     transition: 0.2s ease;
 }
 #menu a:hover {
     color: #f2f2f2;
-    background-color: #122169;
-    border-radius: 5px;
+    background-color: #1F92BC;
     transition: 0.2s ease;
 }
 .back-link {
@@ -62,13 +74,28 @@ header {
     justify-content: right;
 }
 .binary-signal-strip {
-    width:100%;
-    min-width:0;
-    padding:10px 14px;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width:100vw;
+    height: 100vh;
     background:#fff;
-    border:1px solid #012169;
-    box-sizing:border-box;
+    border:none;
     overflow:hidden;
+    opacity: 1;
+    transition: 0.2s ease;
+    z-index: 2;
+}
+.binary-signal-strip.deactive {
+    opacity: 0;
+    z-index: -1;
+}
+.binary-stream {
+    position: absolute;
+    height: 20vh;
+    top: 33%;
+    left: 0;
+    z-index: 2;
 }
 .binary-signal-head {
     display:flex;
@@ -80,7 +107,7 @@ header {
 .binary-label,
 .binary-status {
     font-family:"IBM Plex Mono",monospace;
-    font-size:.72rem;
+    font-size:2rem;
     font-weight:700;
     line-height:1;
     letter-spacing:.08em;
@@ -98,9 +125,9 @@ header {
     max-width:100%;
     overflow:hidden;
     white-space:nowrap;
-    font-family:"IBM Plex Mono",monospace;
-    font-size:.78rem;
-    font-weight:600;
+    font-family: "Doto", monospace;
+    font-size:1.2rem;
+    font-weight:900;
     line-height:1.2;
     letter-spacing:.08em;
     color:#6d7480;
@@ -145,7 +172,7 @@ header {
 }
 .description {
     margin:0 0 18px;
-    font-family:"Doto","Silkscreen",monospace;
+    font-family: "Helvetica", sans-serif;
     font-size: 1.1rem;
     font-weight:600;
     line-height:1.55;
@@ -161,7 +188,7 @@ header {
     padding:3px 8px;
   
     font-family:"Doto","Silkscreen",monospace;
-    font-size:.83rem;
+    font-size:0.9rem;
     font-weight:900;
     line-height:1;
     letter-spacing:.03em;
@@ -186,9 +213,10 @@ header, .binary-signal-strip, .hero, .section {
     grid-template-columns: auto auto;
     gap: 50px;
     justify-content: space-between;
-    background-color: #122169;
+    background-color: #1F92BC;
     color: white;
     padding: 50px;
+    margin-top: 80px;
 }
 .hero h1 {
     font-family: 'Helvetica', sans-serif;
@@ -200,27 +228,30 @@ header, .binary-signal-strip, .hero, .section {
     margin-top: 20px;
 }
 .hero .button {
-    font-family: "Doto", sans-serif;
+    font-family: "Helvetica", sans-serif;
     text-decoration: none;
-    color: white;
     background-color: transparent;
-    border: none;
     padding: 10px;
-    border: 1px solid white;
+    border: 5px solid yellow;
+    border-radius: 20px;
     transition: 0.2s ease;
     margin-right: 10px;
+    font-weight: 600;
+    background-color: transparent;
+    color: white;
 }
 .hero .button:hover {
-    color: cyan;
-    background-color: transparent;
-    border: 1px solid cyan;
+    color: #37B1AB;
+    background-color: white;
+    border: 5px solid white;
     transition: 0.2s ease;
 }
-.hero_terminal_buttons {
+.hero_terminal_container {
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto auto;
     align-items: end;
+    justify-items: right;
 }
 .hero-panel{
     width:90%;
@@ -230,7 +261,7 @@ header, .binary-signal-strip, .hero, .section {
 .terminal{
     width:100%;
     background: white;
-    border:2px solid #f2ff00;;
+    border:2px solid yellow;
     box-shadow:
       0 0 8px rgba(255,245,0,.5),
       0 0 22px rgba(255,245,0,.18);
@@ -333,7 +364,7 @@ header, .binary-signal-strip, .hero, .section {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-content: space-around;
-    background-color: #122169;
+    background-color: #1F92BC;
     color: white;
     padding: 50px;
 }
@@ -378,7 +409,9 @@ header, .binary-signal-strip, .hero, .section {
     grid-template-rows: 50% 50%;
     background-color: white;
     color: #122169;
-    padding: 50px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
     border: 5px solid transparent;
     border-radius: 5px;
     transition: transform .25s ease;
@@ -391,19 +424,20 @@ header, .binary-signal-strip, .hero, .section {
     color: #37B1AB;
 }
 .card div {
-    font-family: 'IBM Mono Plex', monospace;
+    font-family: 'Doto', sans-serif;
     color: #122169;
     font-size: 1rem;
+    font-weight: 900;
 }
 .card:hover {
-    background-color: #EAF7F9;
+    background-color: white;
     color: #f2f2f2;
     transition: 0.2s ease;
-    border: 5px solid #FF7A00;
+    border: 5px solid cyan;
     box-shadow:
-    0 0 2px #FF7A00,
-    0 0 8px rgba(255, 122, 0, .75),
-    0 0 20px rgba(255, 122, 0, .35);
+    0 0 2px rgba(0, 255, 255, 0.918),
+    0 0 8px rgba(0, 255, 255, 0.678),
+    0 0 20px rgba(0, 255, 255, 0.365);
     transform: scale(1.01);
     cursor: pointer;
 }
@@ -420,7 +454,7 @@ header, .binary-signal-strip, .hero, .section {
     font-family: 'Helvetica', sans-serif;
 }
 .cards.selezione div:nth-child(1)>a>h4:nth-child(1), div:nth-child(1)>a>h3:nth-child(2), div:nth-child(1)>a>div:nth-child(5) {
-    color: #4DBAB4;
+    color: #1F92BC;
 }
 .cards.selezione div:nth-child(2)>a>h4:nth-child(1), div:nth-child(2)>a>h3:nth-child(2), div:nth-child(2)>a>div:nth-child(5) {
     color: #FF7A00;
@@ -437,9 +471,9 @@ header, .binary-signal-strip, .hero, .section {
     background-color: white;
 }
 .card.cardlink.cyan:hover {
-    border: 5px solid #37B1AB;
+    border: 5px solid cyan;
     box-shadow:
-    0 0 5px #37B1AB,
+    0 0 5px cyan,
     0 0 8px rgba(0, 255, 251, 0.567),
     0 0 20px rgba(0, 255, 242, 0.259);
     transition: 0.2s ease;
@@ -465,6 +499,7 @@ header, .binary-signal-strip, .hero, .section {
 }
 .card.cardlink a>div:nth-child(3) {
     margin-bottom: 20px;
+    font-size: 1rem;
 }
 .card.cardlink a>div:nth-child(4) {
     margin-bottom: 20px;
@@ -475,6 +510,12 @@ header, .binary-signal-strip, .hero, .section {
     gap: 10px;
     justify-content: left;
     font-family: 'Doto', sans-serif;
+    color: #012169;
+}
+.tags-languages div {
+    color: #122169 !important;
+    font-family: "Doto", sans-serif !important;
+    font-size: 0.8rem !important;
 }
 .cards.selezione div:nth-child(1)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
@@ -1018,8 +1059,8 @@ header, .binary-signal-strip, .hero, .section {
     border-bottom: 2px solid #3A62FE;
 }
 .section.repository div:nth-child(1)>p {
-    font-family: "Doto", monospace;
-    font-size: 1rem;
+    font-family: "Doto", sans-serif;
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.55;
     color: white;
@@ -1165,9 +1206,9 @@ width:100%;
     min-width:0;
     font-family:"Doto", sans-serif;
     font-size: 0.9rem;
-    font-weight: 600;
+    font-weight: 700;
     line-height:1.45;
-    color:#56636b;
+    color: #012169;
     /*
         Valore negativo =
         descrizione leggermente
@@ -1367,17 +1408,17 @@ width:100%;
     justify-content: left;
     padding: 50px;
     gap: 50px;
-    background-color: #122169;
+    background-color: #1F92BC;
     color: white;
 }
-.section.contatti div:nth-child(1)>p {
+.section.contatti div:nth-child(1)>div:nth-child(1)>p {
     font-family: 'Doto', sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     line-height: 1.55;
     color: white;
 }
-.section.contatti div:nth-child(2) {
+.section.contatti div:nth-child(2)>div:nth-child(1) {
     display: flex;
     flex-direction: column;
     max-width: 300px;
@@ -1400,8 +1441,8 @@ width:100%;
     font-family: 'Doto', sans-serif;
     font-size: 1.2rem;
     color: #122169;
-    background-color: #f2f2f2;
-    border: none;
+    background-color: white;
+    border: 2px solid #0092BC;
     padding: 10px;
     transition: 0.2s ease;
     width: 100%;
@@ -1409,9 +1450,9 @@ width:100%;
 .form button {
     font-family: 'Doto', sans-serif;
     font-size: 1.2rem;
-    color: #122169;
-    background-color: #f2f2f2;
-    border: none;
+    background-color: transparent;
+    border: 5px solid yellow;
+    color: white !important;
     padding: 10px;
     border-radius: 20px;
     transition: 0.2s ease;
@@ -1420,146 +1461,55 @@ width:100%;
     cursor: pointer;
 }
 .form button:hover {
-    color: #f2f2f2;
-    background-color: #e85d4b;
-    border-radius: 5px;
+    color: white;
+    background-color: transparent;
+    border-radius: 20px;
+    border: 5px solid white;
     transition: 0.2s ease;
 }
-.section.contatti div:nth-child(2) {
-    width: 80%;
+.section.contatti div:nth-child(1)>div:nth-child(2) {
+    width: 100%;
     height: auto;
 }
-.section.contatti div:nth-child(2) button {
-    font-family: 'Doto', sans-serif;
-    color: #122169;
-    background-color: #f2f2f2;
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    transition: 0.2s ease;
-    width: auto;
-}
-.section.contatti div:nth-child(2) img {
+.section.contatti div:nth-child(2)>div:nth-child(1)>img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.section.contatti div:nth-child(4) {
-    display: flex;
-    flex-direction: column;
+.section.contatti div:nth-child(2)>div:nth-child(2) {
+    display: grid;
+    width: 100%;
+    grid-template-columns: auto auto auto auto;
     gap: 10px;
 }
-.section.contatti div:nth-child(4) i {
+.section.contatti div:nth-child(2)>div:nth-child(2) i {
     font-family: 'Doto', sans-serif;
-    font-size: 30px;
-    color: white;
-}
-.section.contatti div:nth-child(4) a {
-    text-decoration: none;
-    font-style: normal;
-    color: white;
-}
-.section.contatti div:nth-child(4) a:hover {
-    color: #FF7A00;
+    font-size: 50px;
+    color: white !important;
     transition: 0.2s ease;
     cursor: pointer;
 }
-.complex-audio-fullwidth{
-    width:100%;
-    min-width:0;
-    box-sizing:border-box;
-    background:#fff;
-}
-.complex-wave-console{
-    position:relative;
-    width:100%;
-    min-width:0;
-    overflow:hidden;
-    background:#fff;
-    border:0;
-    box-sizing:border-box;
-}
-.wave-console-head{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:8px 12px 6px;
-    font-family:"IBM Plex Mono",monospace;
-    font-size:.72rem;
-    font-weight:700;
-    line-height:1;
-    letter-spacing:.08em;
-    text-transform:uppercase;
-}
-.wave-label{
-    color:#012169;
-}
-.wave-status{
-    color:#e85d4b;
-}
-.complex-wave{
-    display:block;
-    width:100%;
-    height:110px;
-    background:#fff;
-    border:0;
-    outline:0;
-    box-sizing:border-box;
-}
-  /*
-    Il canvas HTML originale viene usato
-    soltanto come riferimento strutturale.
-    Il JS crea sopra di esso il canvas
-    realmente animato.
-  */
-#complexWave{
-    visibility:hidden;
-    overflow: hidden;
-    opacity:0;
-  
-    position:absolute;
-  
-    pointer-events:none;
-}
-#zoomedSineScope {
-    display:block;
-  
-    width:100%;
-    height:110px;
-    background:#fff;
-  
-    transform: scaleX(1);
-    transform-origin: center center;
-    border:0;
-    outline:0;
-  
-    box-sizing:border-box;
-}
-@media(max-width:620px){
-    .wave-console-head{
-      padding:7px 10px 5px;
-  
-      font-size:.65rem;
-    }
-  
-    #zoomedSineScope{
-      height:90px;
-    }
+.section.contatti div:nth-child(2)>div:nth-child(2) i:hover {
+    color: cyan !important;
+    cursor: pointer;
 }
 footer {
     display: grid;
     grid-template-columns: auto auto;
-    color: #122169;
+    color: #1F92BC;
     padding: 10px;
+    padding-top: 0;
     justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
 }
 footer p {
-    font-family: 'Helvetica', sans-serif;
-    color: #122169;
-    font-size: 12px;
+    font-family: 'Doto', sans-serif;
+    color: #1F92BC;
+    font-size: 1rem;
 }
 footer a {
     text-decoration: none;
     font-family: 'Doto', sans-serif;
-    color: #122169;
+    color: #1F92BC;
 }
