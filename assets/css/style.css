@@ -6,7 +6,7 @@ header {
     display:grid;
     grid-template-columns: auto auto;
     align-items: center;
-    border-bottom: 2px solid #3A62FE;
+    border-bottom: 2px solid #15C0E4;
     background-color: white;
     padding: 5px;
     padding-left: 10px;
@@ -156,8 +156,7 @@ header {
     line-height:1.2;
     letter-spacing:.012em;
     text-transform:uppercase;
-    color:#9dff00;
-    -webkit-text-fill-color:#9dff00;
+    color:#5CEE48;
     -webkit-text-stroke:.12px currentColor;
     text-shadow:
       0 0 2px currentColor,
@@ -188,22 +187,18 @@ header {
     padding:3px 8px;
   
     font-family:"Doto","Silkscreen",monospace;
-    font-size:0.9rem;
+    font-size:1rem;
     font-weight:900;
     line-height:1;
     letter-spacing:.03em;
   
-    color: #122169;
-    background: white;
+    color: #15C0E4;
+    background:white;
     border-radius:3px;
 }
 
-.tags .tag:nth-child(1)>span, .tag:nth-child(2)>span {
-    color: #1F92BC;
-}
-
-.tags .tag:nth-child(3)>span {
-    color: #F97A01;
+.tags .tag:nth-child(1)>span, .tag:nth-child(2)>span, .tag:nth-child(3)>span {
+    color: #FBCB4A;
 }
 header, .binary-signal-strip, .hero, .section {
     margin-bottom: 30px;
@@ -232,17 +227,16 @@ header, .binary-signal-strip, .hero, .section {
     text-decoration: none;
     background-color: transparent;
     padding: 10px;
-    border: 5px solid yellow;
+    border: 5px solid #FBCB4A;
     border-radius: 20px;
     transition: 0.2s ease;
     margin-right: 10px;
     font-weight: 600;
-    background-color: transparent;
     color: white;
 }
 .hero .button:hover {
-    color: #37B1AB;
-    background-color: white;
+    color: white;
+    background-color: #FBCB4A;
     border: 5px solid white;
     transition: 0.2s ease;
 }
@@ -261,10 +255,10 @@ header, .binary-signal-strip, .hero, .section {
 .terminal{
     width:100%;
     background: white;
-    border:2px solid yellow;
+    border: 5px solid #FBCB4A;
     box-shadow:
-      0 0 8px rgba(255,245,0,.5),
-      0 0 22px rgba(255,245,0,.18);
+      0 0 20px rgba(255, 247, 0, 0.679)
+      0 0 42px #fbcc4a8d;
     overflow:hidden;
 }
 .terminal-top{
@@ -383,13 +377,13 @@ header, .binary-signal-strip, .hero, .section {
     transition: 0.2s ease;
 }
 .description.description1 {
-    border-top: solid 2px #3A62FE;
+    border-top: solid 2px #FBCB4A;
     border-left: transparent;
     padding-top: 50px;
     margin-left: 50px;
 }
 .description.description2 {
-    border-left: solid 2px #3A62FE;
+    border-left: solid 2px #FBCB4A;
     padding-left: 50px;
     margin-left: 50px;
 }
@@ -408,7 +402,7 @@ header, .binary-signal-strip, .hero, .section {
     grid-template-columns: auto;
     grid-template-rows: 50% 50%;
     background-color: white;
-    color: #122169;
+    color: #1D3ECF;
     padding: 20px;
     padding-left: 40px;
     padding-right: 40px;
@@ -421,11 +415,11 @@ header, .binary-signal-strip, .hero, .section {
 .card h3 {
     font-family: 'Helvetica', sans-serif;
     font-size: 1.5rem;
-    color: #37B1AB;
+    color: #FBCB4A;
 }
 .card div {
     font-family: 'Doto', sans-serif;
-    color: #122169;
+    color: #1F92BC;
     font-size: 1rem;
     font-weight: 900;
 }
@@ -435,17 +429,17 @@ header, .binary-signal-strip, .hero, .section {
     transition: 0.2s ease;
     border: 5px solid cyan;
     box-shadow:
-    0 0 2px rgba(0, 255, 255, 0.918),
+    0 0 2px #5CEE48,
     0 0 8px rgba(0, 255, 255, 0.678),
     0 0 20px rgba(0, 255, 255, 0.365);
     transform: scale(1.01);
     cursor: pointer;
 }
 .card:hover h3 {
-    color: #122169;
+    color: #5CEE48;
 }
 .card:hover div {
-    color: #37B1AB;;
+    color: #15C0E4;
 }
 .cards.selezione {
     grid-template-columns: 2fr 2fr 2fr;
@@ -454,13 +448,13 @@ header, .binary-signal-strip, .hero, .section {
     font-family: 'Helvetica', sans-serif;
 }
 .cards.selezione div:nth-child(1)>a>h4:nth-child(1), div:nth-child(1)>a>h3:nth-child(2), div:nth-child(1)>a>div:nth-child(5) {
-    color: #1F92BC;
+    color: #15C0E4;
 }
 .cards.selezione div:nth-child(2)>a>h4:nth-child(1), div:nth-child(2)>a>h3:nth-child(2), div:nth-child(2)>a>div:nth-child(5) {
-    color: #FF7A00;
+    color: #FBCB4A;
 }
 .cards.selezione div:nth-child(3)>a>h4:nth-child(1), div:nth-child(3)>a>h3:nth-child(2), div:nth-child(3)>a>div:nth-child(5) {
-    color: #9DFF00;
+    color: #5CEE48;
 }
 .card.cardlink {
     border: 5px solid transparent;
@@ -470,28 +464,37 @@ header, .binary-signal-strip, .hero, .section {
 .card.cardlink:hover {
     background-color: white;
 }
+.card.cardlink.cyan a>div:nth-child(3) {
+    color: #15C0E4;
+}
+.card.cardlink.orange a>div:nth-child(3) {
+    color: #FBCB4A;
+}
+.card.cardlink.green a>div:nth-child(3) {
+    color: #5CEE48;
+}
 .card.cardlink.cyan:hover {
-    border: 5px solid cyan;
+    border: 5px solid #15C0E4;
     box-shadow:
-    0 0 5px cyan,
-    0 0 8px rgba(0, 255, 251, 0.567),
-    0 0 20px rgba(0, 255, 242, 0.259);
+    0 0 5px #15C0E4,
+    0 0 8px #15c1e457,
+    0 0 20px #15C0E4;
     transition: 0.2s ease;
 }
 .card.cardlink.orange:hover {
-    border: 5px solid #FF7A00;
+    border: 5px solid #FBCB4A;
     box-shadow:
-    0 0 5px #FF7A00,
-    0 0 8px rgba(255, 122, 0, .75),
-    0 0 20px rgba(255, 123, 0, 0.577);
+    0 0 5px #FBCB4A,
+    0 0 8px #fbcc4ab2,
+    0 0 20px #fbcc4a5f;
     transition: 0.2s ease;
 }
 .card.cardlink.green:hover {
-    border: 5px solid #9DFF00;
+    border: 5px solid #5CEE48;
     box-shadow:
-    0 0 5px #9DFF00,
-    0 0 8px rgba(47, 255, 0, 0.707),
-    0 0 20px rgba(0, 255, 51, 0.227);
+    0 0 5px #5CEE48,
+    0 0 8px #5bee48b5,
+    0 0 20px #5bee4870;
     transition: 0.2s ease;
 }
 .card.cardlink a {
@@ -510,31 +513,27 @@ header, .binary-signal-strip, .hero, .section {
     gap: 10px;
     justify-content: left;
     font-family: 'Doto', sans-serif;
-    color: #012169;
 }
 .tags-languages div {
-    color: #122169 !important;
+    color: black !important;
     font-family: "Doto", sans-serif !important;
     font-size: 0.8rem !important;
 }
 .cards.selezione div:nth-child(1)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
-    border: 1px solid #2B7A7A;
-    color: black;
+    border: 1px solid #15C0E4;
     font-family: 'Doto', sans-serif;
     padding: 5px;
 }
 .cards.selezione div:nth-child(2)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
-    border: 1px solid #FF7A00;
-    color: black;
+    border: 1px solid #FBCB4A;
     font-family: 'Doto', sans-serif;
     padding: 5px;
 }
 .cards.selezione div:nth-child(3)>a>div:nth-child(4)>div {
     background-color: #F5FBFB;
-    border: 1px solid #9DFF00;
-    color: black;
+    border: 1px solid #5CEE48;
     font-family: 'Doto', sans-serif;
     padding: 5px;
 }
@@ -1056,7 +1055,7 @@ header, .binary-signal-strip, .hero, .section {
     justify-content: left;
 }
 .section.repository div:nth-child(1)>p {
-    border-bottom: 2px solid #3A62FE;
+    border-bottom: 2px solid #15C0E4;
 }
 .section.repository div:nth-child(1)>p {
     font-family: "Doto", sans-serif;
@@ -1068,11 +1067,11 @@ header, .binary-signal-strip, .hero, .section {
 .section.repository div:nth-child(3)>a, .section.contatti div:nth-child(2) button {
     text-decoration: none;
     font-family: 'Helvetica', sans-serif;
-    color: #FFF200;
+    color: #FBCB4A;
     background-color: transparent;
     text-shadow:
-        0 0 2px #FFF200,
-        0 0 6px rgba(255,242,0,.65);
+        0 0 2px #FBCB4A,
+        0 0 6px #fbcc4aca;
     transition:
         transform .2s ease,
         box-shadow .2s ease,
@@ -1083,14 +1082,14 @@ header, .binary-signal-strip, .hero, .section {
     background-color: transparent;
     transform:scale(1.04);
     text-shadow:
-      0 0 2px #FFF200,
-      0 0 6px #FFF200,
-      0 0 14px rgba(255,242,0,.85);
+      0 0 2px #FBCB4A,
+      0 0 6px #fbcc4ada,
+      0 0 14px #fbcc4ac3;
     box-shadow:
-      0 0 2px #FFF200,
-      0 0 7px rgba(255,242,0,.95),
-      0 0 16px rgba(255,242,0,.65),
-      0 0 30px rgba(255,242,0,.30);
+      0 0 2px #FBCB4A,
+      0 0 7px #fbcc4aec,
+      0 0 16px #fbcc4acd,
+      0 0 30px #fbcc4a92;
     animation: github-neon-flicker 1.8s infinite;
   }
 @keyframes github-neon-flicker{
@@ -1176,9 +1175,9 @@ width:100%;
     ================================ */
 .repo-name{
     font-family:"IBM Plex Mono",monospace;
-    font-size:.95rem;
+    font-size:1rem;
     font-weight:700;
-    color:#0092BC;
+    color: #15C0E4;
     overflow:hidden;
     white-space:nowrap;
     text-overflow:ellipsis;
@@ -1192,10 +1191,10 @@ width:100%;
     align-items:center;
     padding:4px 8px;
     font-family:"Doto", sans-serif;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-weight:800;
-    color:#ff00c8;
-    border:1px solid #ff00c8;
+    color:#5CEE48;
+    border:1px solid #5CEE48;
     background:transparent;
     white-space:nowrap;
 }
@@ -1205,10 +1204,10 @@ width:100%;
 .repo-description{
     min-width:0;
     font-family:"Doto", sans-serif;
-    font-size: 0.9rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 900;
     line-height:1.45;
-    color: #012169;
+    color: #FBCB4A;
     /*
         Valore negativo =
         descrizione leggermente
@@ -1234,7 +1233,7 @@ width:100%;
     ================================ */
 .repo-row:hover,
 .repo-row:focus-visible {
-    background:#FF7A00;
+    background: #5CEE48;
     outline:0;
 }
 .repo-row:hover .repo-index,
@@ -1434,8 +1433,10 @@ width:100%;
 }
 .form label>div {
     font-family: 'Doto', sans-serif;
+    font-weight: 900;
     font-size: 1.4rem;
     margin-bottom: 30px;
+    color: #FBCB4A;
 }
 .form input, .form textarea {
     font-family: 'Doto', sans-serif;
@@ -1451,7 +1452,7 @@ width:100%;
     font-family: 'Doto', sans-serif;
     font-size: 1.2rem;
     background-color: transparent;
-    border: 5px solid yellow;
+    border: 5px solid #FBCB4A;
     color: white !important;
     padding: 10px;
     border-radius: 20px;
@@ -1490,7 +1491,7 @@ width:100%;
     cursor: pointer;
 }
 .section.contatti div:nth-child(2)>div:nth-child(2) i:hover {
-    color: cyan !important;
+    color: #FBCB4A !important;
     cursor: pointer;
 }
 footer {
