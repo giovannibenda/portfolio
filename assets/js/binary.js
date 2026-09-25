@@ -1,7 +1,7 @@
 (() => {
     "use strict";
   
-    const binaryEl = document.getElementById("binaryStream");
+    const binaryEl = document.querySelector(".binary-numbers");
   
     if (!binaryEl) return;
   
@@ -59,26 +59,32 @@
     }
   
   
-    function getVisibleCharacterCount(){
-  
-      /*
-        Stima della larghezza media di un carattere.
-  
-        Serve per generare SOLO la quantità di bit
-        necessaria a riempire il contenitore.
-      */
-  
-      const pxPerCharacter =
-        window.innerWidth < 620
-          ? 6.2
-          : 9;
-  
+    function getVisibleCharacterCount() {
       const width = binaryEl.clientWidth;
-  
-      return Math.max(
-        72,
-        Math.ceil(width / pxPerCharacter)
-      );
+      if (width <= 0) return 72;
+    
+      // 1. Creiamo un misuratore temporaneo con lo stesso identico stile del div
+      const tester = document.createElement("span");
+      tester.style.fontFamily = '"Doto", monospace';
+      tester.style.fontSize = "1.2rem";
+      tester.style.letterSpacing = ".08em";
+      tester.style.fontWeight = "900";
+      tester.style.position = "absolute";
+      tester.style.visibility = "hidden";
+      tester.style.whiteSpace = "nowrap";
+      tester.textContent = "0"; // Misuriamo un singolo bit
+      document.body.appendChild(tester);
+    
+      // 2. Otteniamo la larghezza esatta al millesimo di pixel
+      const charWidth = tester.getBoundingClientRect().width;
+      document.body.removeChild(tester); // Lo eliminiamo subito
+    
+      // 3. Calcoliamo quanti caratteri stanno ESATTAMENTE nella riga
+      const exactChars = Math.floor(width / charWidth);
+    
+      // Ritorniamo il numero esatto (minimo 32). Aggiungiamo +1 per assicurarci 
+      // che tocchi il bordo destro attivando la giustificazione CSS
+      return Math.max(32, exactChars + 1);
     }
   
   
@@ -192,6 +198,6 @@
       if (stripEl) {
         stripEl.classList.add("deactive");
       }
-    }, 1000); 
+    }, 1500); 
   
   })();

@@ -4,14 +4,26 @@ title: Giovanni Benda - Web Development
 backlink: progetti
 ---
 {% include header.html %}
+
+<section class="binary-signal-strip">
+    <div class="binary-stream">
+      <div class="binary-signal-head">
+        <span class="binary-label">ARTICLE / BINARY STREAM</span>
+        <span class="binary-status">LOADING</span>
+      </div>
+      <div class="binary-numbers" aria-label="Binary data stream"></div>
+    </div>
+</section>
+
 <div id="repository" class="article-section section repository">
     <div>
         <div id="category" class="category"></div>
         <h2></h2>
         <p></p>
     </div>
+    <div id="article" class="article"></div>
 </div>
-<div id="article" class="article"></div>
+<script src="assets/js/binary.js"></script>
 <script src="assets/js/data.js"></script>
 <script src="assets/js/article.js"></script>
 <script src="assets/js/player.js"></script>

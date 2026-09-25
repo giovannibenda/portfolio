@@ -109,7 +109,7 @@ li:hover>a {
 }
 .binary-signal-strip {
     position: fixed;
-    top: 0px;
+    top: 0;
     left: 0;
     width:100vw;
     height: 100vh;
@@ -117,34 +117,40 @@ li:hover>a {
     border:none;
     overflow:hidden;
     opacity: 1;
-    transition: 0.2s ease;
     z-index: 5;
 }
 .binary-signal-strip.deactive {
     opacity: 0;
     z-index: -1;
+    transition: 0.2s ease;
 }
 .binary-stream {
     position: absolute;
-    top: 27%;
-    width:90%;
-    min-width:0;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    margin: 0;
     padding: 100px;
     font-family: "Doto", monospace;
-    font-size:1.2rem;
-    font-weight:900;
-    line-height:1.2;
-    letter-spacing:.08em;
-    color:#6d7480;
-    user-select:none;
-    box-sizing:border-box;
+    font-size: 1.2rem;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: .08em;
+    color: #fbcb4a;
+    user-select: none;
+    box-sizing: border-box;
     z-index: 5;
+
+    /* BLOCCO RIGA SINGOLA DA BORDO A BORDO */
+    white-space: nowrap;            /* Impedisce tassativamente di andare a capo */
+    overflow: hidden;               /* Nasconde i numeri in più se la riga sfora */
+    text-align: justify;
+    text-justify: inter-character;  /* Distribuisce i millimetri di avanzo tra i numeri */
 }
 .binary-signal-head {
     display:flex;
     align-items:center;
     justify-content:space-between;
-  
     margin-bottom:7px;
 }
 .binary-label,
@@ -156,11 +162,20 @@ li:hover>a {
     letter-spacing:.08em;
     text-transform:uppercase;
 }
-.binary-label {
-    color:#012169;
-}
 .binary-status {
+    animation: flashing 1.5s infinite;
     color:#e85d4b;
+}
+@keyframes flashing {
+    100% {
+        opacity:1;
+    }
+    50% {
+        opacity:0;
+    }
+}
+.binary-label {
+    color:#1f92bc;
 }
 @media(max-width:620px){
     .binary-signal-strip{
@@ -683,10 +698,6 @@ header, .binary-signal-strip, .hero, .section {
 .article-section {
     margin-top: 80px;
 }
-.article {
-    background-color: #3792BC;
-    margin-bottom: 20px;
-}
 .article_cards {
     display: grid;
     grid-template-columns: 2fr 2fr 2fr;
@@ -749,8 +760,7 @@ header, .binary-signal-strip, .hero, .section {
     display: grid;
     grid-template-columns: 60% auto;
     gap: 50px;
-    padding: 50px;
-    padding-top: 50px;
+    margin-bottom: 50px;
 }
 .article_title {
     font-family: 'Doto', sans-serif;
@@ -871,8 +881,6 @@ header, .binary-signal-strip, .hero, .section {
     gap: 50px;
     font-size: 1.2rem;
     color: white;
-    padding-left: 50px;
-    padding-right: 50px;
     padding-bottom: 50px;
     justify-items: right;
 }
@@ -938,10 +946,10 @@ header, .binary-signal-strip, .hero, .section {
     position: fixed;
     top: 70px;
     right: 150px;
-    font-size: 40px;
-    color: #ed8833;
+    font-size: 50px;
+    color: #ed8833 !important;
     font-family: 'Doto', sans-serif;
-    background: none;
+    background: transparent !important;
     border: none;
     cursor: pointer;
     z-index: 1;
@@ -1023,19 +1031,20 @@ header, .binary-signal-strip, .hero, .section {
     color: white;
     background-color: transparent;
     border: none;
-    align-items: center;
+    align-items:normal
 }
 .button_player {
     font-size: 20px;
     cursor: pointer;
     color: white;
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
 }
 .button_player:hover {
     transition: 0.2s ease;
 }
 .video_duration {
+    margin-top: 9px;
     display: grid;
     height: 30px;
     grid-template-columns: auto auto auto;
@@ -1085,9 +1094,9 @@ header, .binary-signal-strip, .hero, .section {
     font-size: 20px;
     height: 30px;
     cursor: pointer;
-    color: white;
+    color: white !important;
     font-family: 'Doto', sans-serif;
-    background-color: transparent;
+    background-color: transparent !important;
     border: none;
     text-align: right;
 }
