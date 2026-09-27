@@ -1950,7 +1950,7 @@ footer a {
         padding: 30px 20px;
     }
     .repo-carousel {
-        min-height: 650px;
+        min-height: 690px;
     }
     .section.contatti {
         grid-template-columns: 1fr;
@@ -1958,19 +1958,22 @@ footer a {
         padding-right: 10px;
         gap: 30px;
     }
+    .section.contatti div:nth-child(1)>div:nth-child(2) {
+        display: grid;
+        grid-template-columns: auto;
+    }
     .section.contatti div:nth-child(1)>div:nth-child(2)>form {
         width: 100%;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto auto;
         gap: 20px;
         padding-bottom: 70px;
     }
     .form label {
-        padding-right: 15px;
+        width: 90%;
     }
     .form button {
-        width: 100%;
+        padding-right: 20px;
     }
     .section.contatti div:nth-child(2) {
         width: 100%;
