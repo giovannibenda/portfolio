@@ -114,12 +114,6 @@ function createVideo() {
     video.setAttribute("src", trackPath);
     video.setAttribute("width", "800");
     video.setAttribute("type", "video/mp4");
-    
-    // Rimosso videoInfo() perché i testi sono già stampati da createArticle()
-    if (videoPlayerCard) {
-        videoPlayerCard.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8))';
-    }
-    
     container.appendChild(video);
 }
 

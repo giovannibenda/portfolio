@@ -18,8 +18,8 @@ function createArticle (track) {
         </div>
         <div id="video_card_description" class="video_card_description"></div>
         <div id="popup_video_overlay" class="popup_video_overlay">
+            <button class="close-popup-btn" onclick="closePlayer()">&times;</button>
             <div id="video_player_card" class="video_player_card">
-                <button class="close-popup-btn" onclick="closePlayer()">&times;</button>
                 <div class="video_player">
                     <div id="video_container" class="video_container"></div>
                     <div id="video_functions" class="video_functions">

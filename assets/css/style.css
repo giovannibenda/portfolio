@@ -982,7 +982,7 @@ header, .binary-signal-strip, .hero, .section {
 .popup_video_overlay {
     display: none; /* Nasconde il popup di base */
     position: fixed;
-    top: 40px;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -994,14 +994,26 @@ header, .binary-signal-strip, .hero, .section {
 .popup_video_overlay.active {
     display: flex;
 }
+.close-popup-btn {
+    position: fixed;
+    top: 0px;
+    right: 150px;
+    font-size: 50px;
+    color: #ed8833 !important;
+    font-family: 'Doto', sans-serif;
+    background: transparent !important;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
 .video_player_card {
     position: absolute;
     width: auto;
-    top: 50px;
+    top: 80px;
     display: grid;
     grid-template-columns: auto;
     color: #122169;
-    background-color: transparent;
+    background-color: black;
     justify-items: left;
     font-family: 'Doto', sans-serif;
     border: 5px solid #ed8833;
@@ -1025,18 +1037,6 @@ header, .binary-signal-strip, .hero, .section {
     background-color: transparent;
     z-index: 2;
 }
-.close-popup-btn {
-    position: fixed;
-    top: 40px;
-    right: 150px;
-    font-size: 50px;
-    color: #ed8833 !important;
-    font-family: 'Doto', sans-serif;
-    background: transparent !important;
-    border: none;
-    cursor: pointer;
-    z-index: 1;
-}
 .video_functions {
     position: relative;
     display: grid;
@@ -1051,9 +1051,6 @@ header, .binary-signal-strip, .hero, .section {
     accent-color: #5cee48;
     color: white;
     background-color: transparent;
-}
-.video_functions.active {
-    top: -120px;
 }
 .video_functions:hover {
     opacity: 1;
@@ -1264,6 +1261,7 @@ header, .binary-signal-strip, .hero, .section {
     height: 100%;
     object-fit: cover;
     z-index: 3;
+    background-color: black;
 }
 .video_info {
     width: 100%;
@@ -1918,17 +1916,14 @@ footer a {
         gap: 25px;
         padding-bottom: 30px;
     }
-    .popup_video_overlay {
-        top: 20% !important;
-        box-sizing: border-box;
-    }
     .video_player_card {
-        width: 100%;
-        top: 20px;
+        top: 20% !important;
+        width: 97vw !important;
+        height: 35vh;
     }
     .close-popup-btn {
         top: 30px !important;
-        right: 15px;
+        right: 15px !important;
         font-size: 34px;
     }
     .video_settings {
@@ -1940,10 +1935,9 @@ footer a {
     .video_container {
         width: 100px;
     }
-    .video_player video {
+    .video_player {
         width: 100vw !important;
         display: block;
-        background: #000;
     }
     .settings_container,
     .autoplay_speed_container {
@@ -2068,6 +2062,46 @@ footer a {
     .video_card_description {
         font-size: 1rem;
     }
+    .popup_video_overlay.active{
+        width: 100vw;
+        height: 100vh;
+    }
+    .close-popup-btn {
+        top: 10vh !important;
+        right: 0px !important;
+        font-size: 50px !important;
+    }
+    .video_player_card {
+        position: relative;
+        top: 0% !important;
+        width: 100vw;
+        height: 280px;
+    }
+    .video_player {
+        position: absolute;
+        width: 100% !important;
+        height: auto !important;
+    }
+    .video_player video {
+        top: 0;
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: contain;
+    }
+    .video_functions {
+        display: block;
+        width: 100%;
+    }
+    .video_settings {
+        width: 45%;
+        display: grid;
+        grid-template-columns: 15% 20% 20% auto auto auto !important;
+        grid-template-rows: auto;
+        row-gap: 6px;
+        font-size: 11px;
+        padding: 0 5px;
+    }
     .terminal-body {
         padding: 14px;
     }
@@ -2076,10 +2110,6 @@ footer a {
     }
     .terminal-status {
         font-size: 1.3rem;
-    }
-    .video_settings {
-        grid-template-columns: 1fr 1fr;
-        font-size: 11px;
     }
     .autoplay_speed_container {
         width: 140px;
@@ -2111,6 +2141,7 @@ footer a {
     .section.contatti {
         grid-template-columns: 1fr 1fr;
     }
+    
 }
 
 /* MENU PER DISPOSITIVI PORTATILI */
@@ -2236,42 +2267,6 @@ footer a {
 }
 /* VIDEO PLAYER — ADATTAMENTO COMPLETO ALLO SCHERMO MOBILE */
 @media (max-width: 900px) {
-    .popup_video_overlay {
-        top: 0;
-        padding: 0;
-        align-items: stretch;
-        justify-content: stretch;
-    }
-    .video_player_card {
-        position: relative;
-        width: 100%;
-        max-width: 100%;
-        top: 0;
-        margin: 0 auto;
-    }
-    #video_container {
-        width: 100%;
-    }
-    .video_player video {
-        top: 0;
-        width: 100%;
-        height: auto;
-        max-height: 60vh;
-        display: block;
-        object-fit: contain;
-        background: #000;
-    }
-    .close-popup-btn {
-        top: 10px;
-        right: 15px;
-        font-size: 34px;
-    }
-    .video_settings {
-        grid-template-columns: 14% 20% 20% auto auto;
-        row-gap: 6px;
-        font-size: 11px;
-        padding: 0 5px;
-    }
     .video_duration {
         font-size: 12px;
     }
@@ -2292,12 +2287,10 @@ footer a {
     width: 100vw;
     height: 100vh;
     max-width: none;
-    background: #000;
     z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 6;
 }
 .video_player_card.fullscreen #video_container,
 .video_player_card.fullscreen .video_player {
@@ -2314,16 +2307,46 @@ footer a {
 /* Su smartphone in verticale: ruota il player di 90° e lo fa
    coincidere con l'intero schermo, simulando il landscape */
 @media screen and (max-width: 900px) and (orientation: portrait) {
-    .video_player_card.fullscreen {
+    header {
         position: fixed;
         top: 0;
         left: 0;
+        width: 100%;
+        z-index: -1;
+    }
+    .fullscreen {
+        background-color: black;
+    }
+    .video_player_card.fullscreen {
+        top: 0 !important;
+        left: 0 !important;
         width: 100vh;
         height: 100vw;
         transform-origin: top left;
         transform: rotate(90deg) translateY(-100%);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+        z-index: 5 !important;
+    }
+    .video_container {
+        width: 100vh;
+        height: 100vw;
+        background-color: black !important;
     }
     .video_player_card.fullscreen .video_settings {
-        grid-template-columns: 8% 14% 14% auto;
+        width: 100vh;
+        grid-template-columns: 8% 14% 14% auto auto auto !important;
+        grid-template-rows: auto;
+        z-index: 6 !important;
+    }
+    .video_player_card.fullscreen video {
+        position: absolute;
+        width: 100vh !important;
+    }
+    .video_info {
+        position: absolute;
+        width: 100%;
+    }
+    .video_functions.active {
+        top: -80px !important;
     }
 }
